@@ -1,0 +1,66 @@
+/* Fix for the moving box issue */
+.meme-container {
+    position: relative;
+    display: inline-flex; /* Ensures container is EXACTLY image size */
+    line-height: 0;      /* Removes tiny gap at bottom of images */
+}
+
+.meme-main {
+    max-width: 90vw;
+    max-height: 90vh;
+    height: auto;
+}
+
+/* TROUBLESHOOTING: Vertical Position */
+.agree-link {
+    position: absolute;
+    display: block;
+    
+    /* Use 'top' instead of 'bottom' if bottom is acting weird */
+    top: 65.5%;  /* Adjust this to move it up/down */
+    left: 31%;   /* Adjust this to move it left/right */
+    
+    width: 38%;
+    height: 10%;
+    z-index: 100;
+    cursor: pointer;
+}
+
+/* Remove 'outline' once you are happy with the position */
+.debug-mode {
+    outline: 2px dashed lime; 
+    background: rgba(0, 255, 0, 0.2);
+}
+
+/* --- THE GLITCH ANIMATION --- */
+.meme-container:hover .meme-main {
+    animation: glitch 0.3s infinite;
+    filter: hue-rotate(10deg) brightness(1.1);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: inset(10% 0 30% 0);
+    transform: translate(-5px, 2px);
+  }
+  20% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(5px, -2px);
+  }
+  40% {
+    clip-path: inset(40% 0 50% 0);
+    transform: translate(-3px, 3px);
+  }
+  60% {
+    clip-path: inset(80% 0 5% 0);
+    transform: translate(3px, -3px);
+  }
+  80% {
+    clip-path: inset(15% 0 70% 0);
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    clip-path: inset(0 0 0 0); /* Reset back to full image */
+    transform: translate(0);
+  }
+}

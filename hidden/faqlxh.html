@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journey Through the Forest</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* INTRO SEQUENCE STYLES */
+    .intro-sequence {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 9999;
+      background: #000;
+      overflow: hidden;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 4s ease-out, opacity 3s ease-out;
+    }
+
+    /* Layer 3: The Far Background (Mysterious Land) */
+    .background-land {
+      background-image: url('https://files.oaiusercontent.com/file-SgC8L2pM3pM4P8X5R7Z9Q');
+      z-index: 1;
+      transform: scale(1);
+    }
+
+    /* Layer 2: The Midground (Bali Jungle) */
+    .foliage-mid {
+      background-image: url('https://files.oaiusercontent.com/file-T6N9L8M7Q4P5R2Z1X3W0');
+      z-index: 2;
+    }
+
+    /* Layer 1: The Foreground (Close-up Branches) */
+    .foliage-front {
+      background-image: url('https://files.oaiusercontent.com/file-A1B2C3D4E5F6G7H8I9J0');
+      z-index: 3;
+      filter: blur(4px);
+    }
+
+    /* The Animation State */
+    .is-walking .foliage-front {
+      transform: scale(4);
+      opacity: 0;
+    }
+
+    .is-walking .foliage-mid {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+
+    .is-walking .background-land {
+      transform: scale(1.2);
+    }
+
+    /* Hide the whole intro once finished */
+    .intro-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* MAIN PAGE STYLES */
+    .main-content {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+      padding: 20px;
+    }
+
+    .main-content.visible {
+      opacity: 1;
+    }
+
+    .content-card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 60px 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 600px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #333;
+      margin-bottom: 20px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .float-item {
+      position: absolute;
+      opacity: 0.3;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .float-item:nth-child(1) {
+      left: 10%;
+      top: 20%;
+      animation-delay: 0s;
+    }
+
+    .float-item:nth-child(2) {
+      left: 80%;
+      top: 40%;
+      animation-delay: 2s;
+    }
+
+    .float-item:nth-child(3) {
+      left: 50%;
+      top: 70%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- INTRO SEQUENCE -->
+  <div class="intro-sequence" id="introSequence">
+    <div class="layer background-land"></div>
+    <div class="layer foliage-mid"></div>
+    <div class="layer foliage-front"></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content" id="mainContent">
+    <div class="floating-elements">
+      <div class="float-item" style="font-size: 50px;">🌿</div>
+      <div class="float-item" style="font-size: 50px;">🍃</div>
+      <div class="float-item" style="font-size: 50px;">✨</div>
+    </div>
+    
+    <div class="content-card">
+      <h1>Welcome</h1>
+      <p>You've emerged from the forest into a new realm. Your journey continues here...</p>
+    </div>
+  </div>
+
+  <script>
+    // Start the animation immediately on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const introSequence = document.getElementById('introSequence');
+      const mainContent = document.getElementById('mainContent');
+
+      // Trigger the walking animation after a brief moment
+      setTimeout(() => {
+        introSequence.classList.add('is-walking');
+      }, 500);
+
+      // Hide intro and show main content after animation completes
+      setTimeout(() => {
+        introSequence.classList.add('intro-hidden');
+        mainContent.classList.add('visible');
+      }, 5000); // 4s animation + 1s buffer
+    });
+  </script>
+</body>
+</html>
