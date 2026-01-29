@@ -2,7 +2,7 @@
 'use strict';
 
 $(document).ready(function () {
-  Header.defaut();
+  Header.default();
   Footer.default();
 });
 
