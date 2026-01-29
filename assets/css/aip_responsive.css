@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 article {
   background-color: transparent;
@@ -1551,3 +1552,1558 @@ select::-ms-expand {
     font-size: 14px;
   }
 }
+=======
+@charset "UTF-8";
+article {
+  background-color: transparent;
+  color: #fff;
+}
+
+.contents {
+  width: 98%;
+  max-width: 980px;
+  margin: 90px auto 100px;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.8em;
+  word-wrap: break-word;
+}
+
+.more_btn, .btn__back {
+  position: relative;
+  height: auto;
+  padding: 17px;
+  background: transparent;
+  border: 1px solid #919191;
+  color: #919191;
+  font-size: 15px;
+  line-height: 1.2em;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity .6s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .6s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.more_btn #more_load, .btn__back #more_load {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  overflow: hidden;
+}
+
+.more_btn a, .btn__back a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.more_btn.layout-small, .btn__back.layout-small {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.no_result {
+  padding: 20px 10px;
+  background-color: #000;
+  color: #fff;
+  font-size: 15px;
+}
+
+@_one screen and (max-width: 768px) {
+  .more_btn.layout-small, .btn__back.layout-small {
+    width: 100%;
+    max-width: 375px;
+  }
+}
+
+.more_btn:hover, .btn__back:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information .btn__mail {
+  max-width: 980px;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: right;
+}
+
+.information .btn__mail a {
+  display: inline-block;
+  position: relative;
+  padding: 11px 22px 11px 12px;
+  background: #242424;
+  border-radius: 3px;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information .btn__mail a:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  background: url(https://www.sonymusic.co.jp/common/sp/img/arrowR.png) center center no-repeat;
+  background-size: contain;
+  transition: -webkit-transform .7s cubic-bezier(.215, .61, .355, 1) 0s;
+  transition: transform .7s cubic-bezier(.215, .61, .355, 1) 0s;
+  transition: transform .7s cubic-bezier(.215, .61, .355, 1) 0s, -webkit-transform .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: -webkit-transform .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information .btn__mail a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information .btn__mail a:hover:after {
+  transform: translateX(3px);
+  transition: -webkit-transform .7s cubic-bezier(.215, .61, .355, 1) 0s;
+  transition: transform .7s cubic-bezier(.215, .61, .355, 1) 0s;
+  transition: transform .7s cubic-bezier(.215, .61, .355, 1) 0s, -webkit-transform .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transform: translateX(3px);
+  -ms-transform: translateX(3px);
+  -webkit-transition: -webkit-transform .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information #news_list {
+  min-height: 50vh;
+  margin: 23px auto 52px;
+
+  border-top: 1px solid #3e3e3e;
+}
+
+.information #news_list .list-item {
+  position: relative;
+  margin: 0 auto;
+  padding: 23px 0 23px;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  border-bottom: 1px solid #3e3e3e;
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information #news_list .list-item .list-item__thumb {
+  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 14.5%;
+  overflow: hidden;
+}
+
+.information #news_list .list-item .list-item__thumb figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.information #news_list .list-item .list-item__text {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.information #news_list .list-item .list-item__text .list-item__title {
+  padding-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.4em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+  text-align: justify;
+}
+
+.information #news_list .list-item .list-item__text .list-item__date {
+  padding-bottom: 15px;
+  color: #a3a3a3;
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: .05em;
+}
+
+.information #news_list .list-item .list-item__text .list-item__article {
+  overflow: hidden;
+  color: #a3a3a3;
+  font-size: 15px;
+  line-height: 1.4em;
+  letter-spacing: .05em;
+  text-align: justify;
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.information #news_list .list-item a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.information #news_list .list-item:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information #news_list .list-item.is-thumb {
+  letter-spacing: -.4em;
+  text-align: left;
+}
+
+.information #news_list .list-item.is-thumb .list-item__thumb {
+  display: inline-block;
+  position: relative;
+  width: 20%;
+  vertical-align: top;
+  letter-spacing: normal;
+}
+
+.information #news_list .list-item.is-thumb .list-item__text {
+  display: inline-block;
+  width: 77%;
+  margin-left: 2%;
+  vertical-align: top;
+  letter-spacing: normal;
+}
+
+.information article#news_detail {
+  min-height: 50vh;
+  line-height: 1.8em;
+}
+
+.information article#news_detail h3 {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 1.4em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+}
+
+.information article#news_detail .news-detail__date {
+  padding-left: 10px;
+  color: #83878a;
+  font-size: 14px;
+  line-height: 1.6em;
+}
+
+.information article#news_detail .news-detail__txt {
+  margin-top: 20px;
+  padding: 20px 10px 20px;
+  font-size: 15px;
+  line-height: 1.8em;
+  word-wrap: break-word;
+
+  border-top: 1px solid #3e3e3e;
+}
+
+.information article#news_detail .news-detail__txt p.link a {
+  display: inline-block;
+}
+
+.information article#news_detail .news-detail__txt a {
+  color: #1364b6;
+  text-decoration: underline;
+}
+
+.information article#news_detail .news-detail__txt img {
+  max-width: 100%;
+  height: auto;
+}
+
+.information article#news_detail .share__list {
+  font-size: 0;
+  letter-spacing: -.4em;
+  text-align: left;
+}
+
+.information article#news_detail .share__list li {
+  display: inline-block;
+  height: 26px;
+  margin: 0 7px 0 0;
+  vertical-align: top;
+  letter-spacing: normal;
+}
+
+.information article#news_detail .share__list li.socialFaceBook {
+  width: auto;
+  overflow: visible;
+}
+
+.fb_iframe_widget span {
+  vertical-align: top !important;
+}
+
+.information article#news_detail .share__list li.socialFaceBook .fb_iframe_widget {
+  display: block;
+}
+
+.information #news_navi {
+  padding: 25px 0 0;
+}
+
+.information #news_navi ul {
+  width: 100%;
+  font-size: 0;
+  letter-spacing: -.4em;
+}
+
+.information #news_navi ul li {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  font-size: 14px;
+  letter-spacing: normal;
+}
+
+.information #news_navi ul li div {
+  width: 100%;
+  padding: 13px 8px 13px 10px;
+}
+
+.information #news_navi ul li + li div {
+  display: table;
+  width: 100%;
+  padding: 13px 8px 13px 10px;
+
+  border-left: 1px solid #3e3e3e;
+}
+
+.information #news_navi ul li a {
+  color: #000;
+  text-decoration: none;
+  transition: all .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  border-bottom: 1px solid #3e3e3e;
+  border-top: 1px solid #3e3e3e;
+  -webkit-transition: all .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information #news_navi ul li:hover a {
+  background: #242424;
+  color: #fff;
+  transition: all .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: all .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information #news_navi #prev_news {
+  color: #fff;
+}
+
+.information #news_navi #next_news {
+  color: #fff;
+  text-align: right;
+}
+
+.information #latest_news {
+  margin: 23px auto 52px;
+}
+
+.information #latest_news h3 {
+  padding: 10px 0 15px;
+  font-weight: bold;
+  font-size: 15px;
+  font-size: 15px;
+  line-height: 1;
+  line-height: 1.4em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+
+  border-bottom: 1px solid #3e3e3e;
+}
+
+.information #latest_news ul li {
+  position: relative;
+  padding: 24px 0 17px;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  border-bottom: 1px solid #3e3e3e;
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information #latest_news ul li .list-item__text {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.information #latest_news ul li .list-item__text .list-item__title {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.4em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+  text-align: justify;
+}
+
+.information #latest_news ul li .list-item__text .list-item__date {
+  color: #848587;
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: .05em;
+}
+
+.information #latest_news ul li .list-item__text .list-item__article {
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.4em;
+  letter-spacing: .05em;
+  text-align: justify;
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.information #latest_news ul li a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.information #latest_news ul li:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.information .no_result {
+  padding: 20px 10px;
+  font-size: 15px;
+}
+
+.profile #profileWrap {
+  text-align: center;
+}
+
+.profile #profileWrap .prof_detail_txt img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+.live #live_list {
+  min-height: 50vh;
+  margin: 0 auto 52px;
+}
+
+.live #live_list select {
+  padding-left: 10% !important;
+  font-size: 16px;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.live #live_list select option {
+  margin: 5px;
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  line-height: 3em;
+  text-align: left;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+  cursor: pointer;
+}
+
+.live #live_list p.search_name {
+  color: #a3a3a3;
+}
+
+.live #live_list .search_select {
+  background-color: transparent;
+  border-color: #4d4d4d;
+}
+
+.live #live_list .search_select select {
+  color: #fff;
+}
+
+.live #live_list #all_select.search_select p {
+  color: #fff;
+}
+
+.live #live_list #all_select.search_select a {
+  padding: 15px 10px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.live #live_list a {
+  position: relative;
+  padding: 20px 10px 20px;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.live #live_list a .arrow_wrap {
+  padding: 0;
+  background: transparent;
+
+  border-bottom: none;
+}
+
+.live #live_list a .arrow_wrap .live_list_txt p.live_list_title {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.4em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+  text-align: justify;
+}
+
+.live #live_list a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.live #live_list h3 {
+  padding: 15px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.4em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+  text-align: justify;
+}
+
+.live article#liveDetail {
+  margin: 0 auto 52px;
+
+  border-bottom: 1px solid #3e3e3e;
+}
+
+.live article#liveDetail article#news_detail h3 {
+  padding: 0;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 1.4em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+  text-align: justify;
+}
+
+.live article#liveDetail article#news_detail .live_detail dt p {
+  background-color: #969696;
+}
+
+.live article#liveDetail article#news_detail .live_detail_txt {
+  margin-top: 20px;
+  padding: 20px 0 20px;
+  font-size: 15px;
+  line-height: 1.8em;
+  word-wrap: break-word;
+
+  border-bottom: none;
+  border-top: 1px solid #3e3e3e;
+}
+
+.live article#liveDetail section.live_one_info {
+  padding: 12px 0 12px;
+  background-color: transparent;
+
+  border-bottom: none;
+  border-top: 1px solid #3e3e3e;
+}
+
+.live article#liveDetail section.live_one_info .arrow_wrap {
+  padding: 0;
+}
+
+.live article#liveDetail section.live_one_info .arrow_wrap .live_list_txt {
+  cursor: pointer;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.live article#liveDetail section.live_one_info .arrow_wrap .live_list_txt h4.live_list_title {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.4em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+  text-align: justify;
+}
+
+.live article#liveDetail section.live_one_info .arrow_wrap .live_list_txt p.live_list_date {
+  color: #848587;
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: .05em;
+}
+
+.live article#liveDetail section.live_one_info .arrow_wrap .live_list_txt:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.live article#liveDetail section.live_one_info .live_detail_wrap .live_detail {
+  padding: 6px 0 0;
+}
+
+.live article#liveDetail section.live_one_info .live_detail_wrap .live_detail .clearfix p.calendar {
+  margin-bottom: 8px;
+}
+
+.no_result.bgcolorMain {
+  background: #000;
+}
+
+.discography #disco_list_tab_wrap {
+  background-color: transparent;
+}
+
+.discography #disco_list_tab_wrap #disco_category_tab.disco_list_tab {
+  border-right: none;
+}
+
+.discography #disco_list_tab_wrap #disco_category_tab.disco_list_tab #disco_category_tab_in select {
+  padding-left: 10% !important;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.discography #disco_list_tab_wrap #disco_category_tab.disco_list_tab #disco_category_tab_in select option {
+  margin: 5px;
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  line-height: 3em;
+  text-align: left;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+  cursor: pointer;
+}
+
+.discography #disco_area #disco_list_view {
+  border-top: 1px solid #3e3e3e;
+}
+
+.discography #disco_area #disco_list_view #disco_list_view_in {
+  margin: 0 auto 52px;
+}
+
+.discography #disco_area #disco_list_view #disco_list_view_in a.item {
+  position: relative;
+  margin: 0 auto;
+  padding: 23px 0 23px;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  border-bottom: 1px solid #a1a1a1;
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.discography #disco_area #disco_list_view #disco_list_view_in a.item section {
+  padding: 0 10px;
+  background-color: transparent;
+
+  border-bottom: none;
+}
+
+.discography #disco_area #disco_list_view #disco_list_view_in a.item section .disco_list_jk_out2 .disco_list_jk_out p.disco_list_jk img {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.discography #disco_area #disco_list_view #disco_list_view_in a.item section .disco_list_txt h3 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.4em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .075em;
+  text-align: justify;
+}
+
+.discography #disco_area #disco_list_view #disco_list_view_in a.item section .disco_list_txt p {
+  color: #a1a1a1;
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: .075em;
+}
+
+.discography #disco_area #disco_list_view #disco_list_view_in a.item:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.discography article#discDetail p#main_jacket {
+  width: 375px;
+}
+
+.discography article#discDetail h3 {
+  margin: 15px 0 0;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.8em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+  text-align: center;
+}
+
+.discography article#discDetail .disco_cap {
+  color: #848587;
+  font-size: 14px;
+  line-height: 1.7em;
+  letter-spacing: .05em;
+  text-align: center;
+}
+
+.discography article#discDetail .disc_track li {
+  border-color: #3e3e3e;
+}
+
+.discography article#discDetail #download_btn {
+  width: 375px;
+  margin: 40px auto 0;
+  background: #ff003c;
+  font-size: 14px;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.discography article#discDetail #download_btn a {
+  line-height: 1em;
+}
+
+.discography article#discDetail #download_btn a .large_btn_wrap {
+  padding: 12px 10px;
+}
+
+.discography article#discDetail #download_btn:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.discography article#discDetail #disco_share {
+  width: 320px;
+  margin: 20px auto 40px;
+}
+
+.discography article#discDetail #disco_share li {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.discography article#discDetail #video_list_wrap {
+  width: 375px;
+  margin: 12px auto 0;
+}
+
+.discography article#discDetail #video_list_wrap .movie_navi_arrow p {
+  padding: 24px 7px;
+}
+
+.discography article#discDetail .listen_wrap {
+  margin: 15px auto 40px;
+  color: #333;
+}
+
+.discography article#discDetail .listen_wrap #listen_title_wrap {
+  width: 244px !important;
+}
+
+.discography article#discDetail .listen_wrap #listen_title_wrap p#listen_title_txt {
+  width: 100% !important;
+}
+
+.discography article#discDetail .listen_wrap .listen_btn {
+  cursor: pointer;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.discography article#discDetail .listen_wrap .listen_btn:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.discography article#discDetail #disc_detail {
+  margin-top: 20px;
+  padding: 20px 10px 20px;
+  font-size: 15px;
+  line-height: 1.8em;
+  word-wrap: break-word;
+
+  border-top: 1px solid #3e3e3e;
+}
+
+.discography article#discBuy {
+  margin: 0 auto 40px;
+}
+
+.discography article#discBuy h3#buy_title {
+  margin: 0 auto 15px;
+  padding: 0;
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.8em;
+  font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+  text-align: center;
+}
+
+.discography article#discBuy #buy_list {
+  width: 500px;
+  margin: 0 auto;
+  padding-bottom: 0px;
+  background: #000;
+}
+
+.discography article#discBuy #buy_list section {
+  padding-bottom: 20px;
+}
+
+.discography article#discBuy #buy_list section h4 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.discography article#discBuy #buy_list section a {
+  width: 375px;
+  margin: 0 auto 10px;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+.discography article#discBuy #buy_list section a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: .6;
+  transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+
+  -webkit-transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
+}
+
+#mediaWrap {
+  position: relative;
+}
+
+#mediaWrap .search_select {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  height: 44px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#mediaWrap .search_select select {
+  width: 100%;
+  max-width: 980px;
+  height: 100%;
+  padding-left: 10% !important;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+}
+
+#mediaWrap .search_select select option {
+  background: #000;
+  color: #fff;
+}
+
+#mediaWrap .search_select .search_arrow {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 8px;
+}
+
+#mediaWrap .search_select .search_name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 15px 10px;
+  border: none;
+  color: #a3a3a3;
+  font-size: 14px;
+  line-height: 1;
+}
+
+#mediaWrap #category_select_wrap {
+  display: table;
+  width: 100%;
+
+  border-bottom: 1px solid #333;
+}
+
+#mediaWrap #media_list {
+  position: relative;
+  color: #fff;
+}
+
+#mediaWrap #media_list .media_one_date h3 {
+  padding: 10px;
+  background: #222;
+  font-size: 15px;
+  line-height: 1;
+}
+
+#mediaWrap #media_list .media_one_date .media_one_info {
+  min-height: 45px;
+  padding: 15px 0 30px;
+}
+
+#mediaWrap #media_list .media_one_date .media_one_info .arrow_wrap {
+  padding: 10px;
+}
+
+#mediaWrap #media_list .media_one_date .media_one_info .arrow_wrap .media_list_txt {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+#mediaWrap #media_list .media_one_date .media_one_info .arrow_wrap .media_list_txt .media_list_title {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+#mediaWrap #media_list .media_one_date .media_one_info .arrow_wrap .media_list_txt .media_list_category {
+  display: inline-block;
+  padding: 4px;
+  border: solid 1px #fff;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+#mediaWrap #media_list .media_one_date .media_one_info .media_detail {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.4em;
+  letter-spacing: .075em;
+}
+
+#mediaWrap #media_list .media_one_date .media_one_info .media_detail a {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity: 1;
+  color: #fff;
+  text-decoration: underline;
+  transition: opacity .6s linear;
+
+  -webkit-transition: opacity .6s linear;
+}
+
+#mediaWrap #media_list .media_one_date .media_one_info .media_detail a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  opacity: .5;
+  transition: opacity .6s linear;
+
+  -webkit-transition: opacity .6s linear;
+}
+
+#mediaWrap img {
+  width: auto;
+}
+
+@-moz-document url-prefix() {
+  #mediaWrap #category_select_wrap {
+    padding-top: 8px;
+  }
+}
+
+.category h4 {
+  padding: 10px;
+  background: #222;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.category .media_one_info {
+  min-height: 45px;
+  padding: 15px 0;
+}
+
+.category .media_one_info .arrow_wrap {
+  padding: 10px;
+}
+
+.category .media_one_info .arrow_wrap .media_list_txt {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.category .media_one_info .arrow_wrap .media_list_txt .media_list_title {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+.category .media_one_info .arrow_wrap .media_list_txt .media_list_category {
+  display: inline-block;
+  padding: 4px;
+  border: solid 1px #fff;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.category .media_one_info .arrow_wrap .media_list_txt .media_list_time {
+  display: none;
+}
+
+.category .media_one_info .media_detail {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+.category .media_one_info .media_detail p a {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity: 1;
+  color: #fff;
+  text-decoration: underline;
+  transition: opacity .6s linear;
+
+  -webkit-transition: opacity .6s linear;
+}
+
+.category .media_one_info .media_detail p a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  opacity: .5;
+  transition: opacity .6s linear;
+
+  -webkit-transition: opacity .6s linear;
+}
+
+#linkList li {
+  border-bottom: 1px solid #4d4d4d;
+}
+
+#linkList li dl {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity: 1;
+  letter-spacing: .075em;
+  -webkit-transition: opacity .6s linear;
+  transition: opacity .6s linear;
+}
+
+#linkList li dl dt {
+  color: #fff;
+}
+
+#linkList li dl dt a {
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+#linkList li dl dd {
+  color: #a3a3a3;
+}
+
+#linkList li dl dd a {
+  text-decoration: underline;
+}
+
+#linkList li dl:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  opacity: .5;
+  -webkit-transition: opacity .6s linear;
+  transition: opacity .6s linear;
+}
+
+@media all and (-ms-high-contrast: none) {
+  .information .btn__mail a {
+    padding-top: 15px;
+  }
+  .live_detail dt p {
+    padding: 5px 0 0;
+  }
+  #mediaWrap #media_list .media_one_date .media_one_info .arrow_wrap .media_list_txt .media_list_category {
+    padding: 4px 4px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contents {
+    width: 94%;
+    margin: 20px auto 40px;
+    padding: 12px 0 11px;
+    font-size: 14px;
+    line-height: 1.6em;
+  }
+  .media .contents {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .more_btn, .btn__back {
+    padding: 14px;
+    font-size: 13px;
+  }
+  .more_btn.layout-small, .btn__back.layout-small {
+    width: 100%;
+    max-width: 500px;
+  }
+  .information .btn__mail {
+    font-size: 12px;
+    text-align: center;
+  }
+  .information .btn__mail a {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 22px 9px 12px;
+  }
+  .information #news_list {
+    margin: 20px auto 20px;
+  }
+  .information #news_list .list-item {
+    padding: 20px 0 20px;
+  }
+  .information #news_list .list-item .list-item__thumb {
+    padding-top: 14.5%;
+  }
+  .information #news_list .list-item .list-item__text .list-item__title {
+    font-size: 14px;
+  }
+  .information #news_list .list-item .list-item__text .list-item__date {
+    font-size: 12px;
+  }
+  .information #news_list .list-item .list-item__text .list-item__article {
+    font-size: 14px;
+  }
+  .information #news_list .list-item.is-thumb .list-item__thumb {
+    width: 25%;
+  }
+  .information #news_list .list-item.is-thumb .list-item__text {
+    width: 72%;
+    margin-left: 2%;
+  }
+  .information article#news_detail {
+    min-height: 50vh;
+    line-height: 1.8em;
+  }
+  .information article#news_detail h3 {
+    font-size: 14px;
+  }
+  .information article#news_detail .news-detail__date {
+    padding-left: 5px;
+    font-size: 13px;
+  }
+  .information article#news_detail .news-detail__txt {
+    margin-top: 14px;
+    padding: 12px 5px 12px;
+    font-size: 14px;
+    line-height: 1.6em;
+  }
+  .information article#news_detail .news-detail__txt iframe {
+    width: 100%;
+    height: auto;
+  }
+  .information #news_navi {
+    padding: 20px 0 0;
+  }
+  .information #news_navi ul li {
+    font-size: 13px;
+  }
+  .information #latest_news {
+    margin: 20px auto 20px;
+  }
+  .information #latest_news h3 {
+    padding: 10px 0 10px;
+    font-size: 15px;
+    font-size: 15px;
+    line-height: 1;
+  }
+  .information #latest_news ul li {
+    position: relative;
+    padding: 20px 0 17px;
+  }
+  .information #latest_news ul li .list-item__text {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .information #latest_news ul li .list-item__text .list-item__title {
+    font-size: 14px;
+  }
+  .information #latest_news ul li .list-item__text .list-item__date {
+    color: #848587;
+    font-size: 13px;
+    line-height: 1.5em;
+    letter-spacing: .05em;
+  }
+  .information #latest_news ul li .list-item__text .list-item__article {
+    font-size: 14px;
+  }
+  .information .no_result {
+    padding: 20px 10px;
+    font-size: 14px;
+  }
+  .profile #profileWrap {
+    text-align: left;
+  }
+  .profile #profileWrap .prof_detail_txt img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+  }
+  .live #live_list {
+    margin: 0 auto 20px;
+  }
+  .live #live_list select {
+    padding-left: 20% !important;
+    font-size: 14px;
+  }
+  .live #live_list select option {
+    font-size: 13px;
+  }
+  .live #live_list a {
+    position: relative;
+    padding: 16px 10px 16px;
+
+    border-bottom: 1px solid #3e3e3e;
+  }
+  .live #live_list a .arrow_wrap {
+    padding: 0;
+
+    border-bottom: none;
+  }
+  .live #live_list a .arrow_wrap .live_list_txt p.live_list_title {
+    font-size: 14px;
+    line-height: 1.4em;
+    font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: .05em;
+    text-align: justify;
+  }
+  .live #live_list h3 {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.4em;
+    font-family: "Roboto", "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: .05em;
+    text-align: justify;
+  }
+  .live article#liveDetail {
+    margin: 0 auto 20px;
+  }
+  .live article#liveDetail article#news_detail h3 {
+    font-size: 14px;
+  }
+  .live article#liveDetail article#news_detail .live_detail_txt {
+    margin-top: 12px;
+    padding: 12px 0 12px;
+    font-size: 14px;
+
+    border-bottom: none;
+  }
+  .discography #disco_list_tab_wrap #disco_category_tab.disco_list_tab #disco_category_tab_in select {
+    padding-left: 30% !important;
+    font-size: 14px;
+  }
+  .discography #disco_list_tab_wrap #disco_category_tab.disco_list_tab #disco_category_tab_in select option {
+    font-size: 13px;
+  }
+  .discography #disco_area #disco_list_view #disco_list_view_in {
+    margin: 0 auto 20px;
+  }
+  .discography #disco_area #disco_list_view #disco_list_view_in a.item {
+    padding: 20px 0 20px;
+  }
+  .discography #disco_area #disco_list_view #disco_list_view_in a.item section {
+    padding: 0 10px;
+
+    border-bottom: none;
+  }
+  .discography #disco_area #disco_list_view #disco_list_view_in a.item section .disco_list_jk_out2 .disco_list_jk_out p.disco_list_jk img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .discography #disco_area #disco_list_view #disco_list_view_in a.item section .disco_list_txt h3 {
+    font-size: 14px;
+  }
+  .discography #disco_area #disco_list_view #disco_list_view_in a.item section .disco_list_txt p {
+    font-size: 12px;
+  }
+  .discography article#discDetail p#main_jacket {
+    width: 300px;
+  }
+  .discography article#discDetail h3 {
+    margin: 15px 0 0;
+    font-size: 15px;
+  }
+  .discography article#discDetail .disco_cap {
+    font-size: 13px;
+  }
+  .discography article#discDetail #download_btn {
+    width: 300px;
+    margin: 30px auto 0;
+    background: #ff003c;
+  }
+  .discography article#discDetail #disco_share {
+    width: 300px;
+    margin: 20px auto 30px;
+  }
+  .discography article#discDetail #video_list_wrap {
+    width: 300px;
+    margin: 12px auto 0;
+  }
+  .discography article#discDetail .listen_wrap {
+    margin: 15px auto 40px;
+  }
+  .discography article#discDetail .listen_wrap #listen_title_wrap {
+    width: 164px !important;
+  }
+  .discography article#discDetail .listen_wrap #listen_title_txt {
+    padding-right: 5px;
+    font-size: 14px;
+    white-space: normal;
+    word-break: break-all;
+  }
+  .discography article#discDetail #disc_detail {
+    margin-top: 14px;
+    padding: 12px 5px 12px;
+    font-size: 14px;
+    line-height: 1.6em;
+  }
+  .discography article#discDetail .h4_wrap h4 {
+    line-height: 1.4em;
+  }
+  .discography article#discDetail .disc_track .tracklist_wrap li {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  .discography article#discBuy h3#buy_title {
+    font-size: 15px;
+  }
+  .discography article#discBuy #buy_list {
+    width: 100%;
+    max-width: 375px;
+  }
+  .discography article#discBuy #buy_list section a {
+    width: 300px;
+    margin: 0 auto 10px;
+  }
+  #mediaWrap {
+    position: relative;
+  }
+  #mediaWrap .search_select {
+    position: relative;
+    width: 100%;
+    height: 44px;
+    color: #fff;
+    cursor: pointer;
+  }
+  #mediaWrap .search_select select {
+    max-width: 100%;
+    height: 100%;
+    padding-left: 30% !important;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #mediaWrap .search_select .search_arrow {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+  #mediaWrap .search_select .search_name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px 10px;
+    border: none;
+    color: #a3a3a3;
+    font-size: 14px;
+    line-height: 1;
+  }
+  #mediaWrap #category_select_wrap {
+    border-bottom: 1px solid #333;
+  }
+  #mediaWrap #media_list {
+    position: relative;
+    color: #fff;
+  }
+  #mediaWrap #media_list .media_one_date h3 {
+    padding: 10px;
+    background: #222;
+    font-size: 15px;
+    line-height: 1;
+  }
+  #mediaWrap #media_list .media_one_date .media_one_info {
+    min-height: 45px;
+    padding: 10px 0;
+  }
+  #mediaWrap #media_list .media_one_date .media_one_info .arrow_wrap {
+    padding: 5px 10px;
+  }
+  #mediaWrap #media_list .media_one_date .media_one_info .arrow_wrap .media_list_txt {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14px;
+  }
+  #mediaWrap #media_list .media_one_date .media_one_info .arrow_wrap .media_list_txt .media_list_title {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.4em;
+  }
+  #mediaWrap #media_list .media_one_date .media_one_info .arrow_wrap .media_list_txt .media_list_category {
+    display: inline-block;
+    padding: 4px;
+    border: solid 1px #fff;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+  }
+  #mediaWrap #media_list .media_one_date .media_one_info .media_detail {
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 1.6em;
+  }
+  #mediaWrap #media_list .media_one_date .media_one_info .media_detail p a {
+    color: #fff;
+  }
+  #mediaWrap #media_list .media_one_date .media_one_info .media_detail p a:hover {
+    text-decoration: none;
+  }
+  #mediaWrap img {
+    width: auto;
+  }
+  .category h4 {
+    padding: 10px;
+    background: #222;
+    font-size: 15px;
+    line-height: 1;
+  }
+  .category .media_one_info {
+    min-height: 45px;
+    padding: 10px 0 20px;
+
+    border-bottom: none;
+  }
+  .category .media_one_info .arrow_wrap {
+    padding: 5px 10px;
+  }
+  .category .media_one_info .arrow_wrap .media_list_txt {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14px;
+  }
+  .category .media_one_info .arrow_wrap .media_list_txt .media_list_title {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.4em;
+  }
+  .category .media_one_info .arrow_wrap .media_list_txt .media_list_category {
+    display: inline-block;
+    padding: 4px;
+    border: solid 1px #fff;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+  }
+  .category .media_one_info .arrow_wrap .media_list_txt .media_list_time {
+    display: none;
+  }
+  .category .media_one_info .media_detail {
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 1.6em;
+  }
+  .category .media_one_info .media_detail p a {
+    color: #fff;
+  }
+  .category .media_one_info .media_detail p a:hover {
+    text-decoration: underline;
+  }
+  #linkList {
+    width: 100%;
+  }
+  #linkList li dl {
+    word-break: break-all;
+  }
+  #linkList li dl:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+  }
+  #linkList li dl dt a {
+    font-size: 14px;
+  }
+  #linkList li dl dd a {
+    font-size: 14px;
+  }
+}
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56

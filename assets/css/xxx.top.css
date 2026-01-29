@@ -266,7 +266,11 @@
   left: 0;
   width: 0;
   height: 100%;
+<<<<<<< HEAD
   background: #fff5c5; /*#ffde2d orig*/
+=======
+  background: #ffde2d;
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 }
 
 .is-active .p-link__bg::before {
@@ -1059,12 +1063,20 @@ html {
   position: relative;
   width: 80%;
   margin: 0 auto;
+<<<<<<< HEAD
   text-align: center;
+=======
+  text-align: left;
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 }
 
 .l-hero__title {
   display: inline-block;
+<<<<<<< HEAD
   width: 800px;
+=======
+  width: 492px;
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 }
 
 .l-hero__info {

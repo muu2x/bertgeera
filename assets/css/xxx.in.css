@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 .l-wrap__earth {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -475,3 +476,482 @@
     transition: all .25s cubic-bezier(.165, .84, .44, 1);
   }
 }
+=======
+@charset "UTF-8";
+.l-wrap__earth {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity: 0;
+}
+
+.is-in .l-wrap__earth {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity: 1;
+  -webkit-transition: opacity 1.25s cubic-bezier(.165, .84, .44, 1) .2s;
+  transition: opacity 1.25s cubic-bezier(.165, .84, .44, 1) .2s;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.l-in {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity: 0;
+}
+
+.is-in .l-in {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity: 1;
+  -webkit-transition: opacity .65s cubic-bezier(.165, .84, .44, 1);
+  transition: opacity .65s cubic-bezier(.165, .84, .44, 1);
+}
+
+.l-in {
+  padding: 150px 0 82px;
+}
+
+.l-in__container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 45px 0 58px;
+  background: rgba(0, 0, 0, .6);
+}
+
+.l-in__header {
+  padding-bottom: 55px;
+}
+
+.l-in__header h2 {
+  display: block;
+  width: 532px;
+  margin: 0 auto;
+}
+
+.l-in__footer {
+  width: 960px;
+  margin: 0 auto;
+  padding-top: 58px;
+}
+
+.contents {
+  margin: 0 auto;
+}
+
+.p-prof {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.p-prof__text {
+  line-height: 1.6;
+}
+
+.p-prof__text img {
+  margin: 0 auto;
+}
+
+.p-news {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.p-prof__text img {
+  margin: 10px 0;
+}
+
+.information #news_list {
+  margin: 0 auto;
+}
+
+.information #news_list .list-item {
+  list-style: none;
+}
+
+.information #news_list .list-item .list-item__text {
+  padding: 6px 0 4px;
+}
+
+.information #news_list .list-item .list-item__text .list-item__title {
+  padding-bottom: 0px;
+  color: #369cd6;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+}
+
+.information #news_list .list-item .list-item__text .list-item__date {
+  padding-bottom: 4px;
+  font-size: 12px;
+}
+
+.information #news_list .list-item .list-item__text .list-item__article {
+  color: #fff;
+  font-size: 15px;
+}
+
+.information article#news_detail h3 {
+  color: #369cd6;
+  font-weight: 700;
+  font-size: 28px;
+  font-family: "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+}
+
+.information article#news_detail .news-detail__txt a {
+  color: #ffde2d;
+}
+
+.information article#news_detail .news-detail__txt img {
+  margin: 10px 0;
+}
+
+.contents {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.information #news_navi ul li {
+  position: relative;
+}
+
+.information #news_navi ul li #prev_news, .information #news_navi ul li #next_news {
+  position: relative;
+  -webkit-transition: color .25s cubic-bezier(.165, .84, .44, 1) .1s;
+  transition: color .25s cubic-bezier(.165, .84, .44, 1) .1s;
+}
+
+.more_btn, .btn__back {
+  position: relative;
+  border: none;
+  color: #ffde2d;
+  -webkit-transition: all .65s cubic-bezier(.165, .84, .44, 1);
+  transition: all .65s cubic-bezier(.165, .84, .44, 1);
+}
+
+.more_btn::before, .btn__back::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all .45s cubic-bezier(.165, .84, .44, 1) .1s;
+  transition: all .45s cubic-bezier(.165, .84, .44, 1) .1s;
+
+  border-left: 1px solid #ffde2d;
+  border-top: 1px solid #ffde2d;
+  pointer-events: none;
+}
+
+.more_btn::after, .btn__back::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all .45s cubic-bezier(.165, .84, .44, 1) .1s;
+  transition: all .45s cubic-bezier(.165, .84, .44, 1) .1s;
+
+  border-bottom: 1px solid #ffde2d;
+  border-right: 1px solid #ffde2d;
+  pointer-events: none;
+}
+
+.search_select {
+  background: none;
+}
+
+.search_select select {
+  padding-left: 0 !important;
+  color: #000;
+  outline: none;
+}
+
+#mediaWrap .search_select select option, .live #live_list select option {
+  background: #fff;
+  color: #000;
+}
+
+.search_name {
+  color: #fff;
+}
+
+#all_select p {
+  color: #fff;
+}
+
+#live_list .arrow_wrap {
+  padding: 12px 10px;
+  background: none;
+}
+
+#live_list h3 {
+  padding: 14px 10px;
+}
+
+.live_detail a {
+  color: #ffde2d;
+}
+
+.live_detail dt p {
+  background: #000;
+}
+
+.live_detail_txt a {
+  color: #ffde2d;
+}
+
+.live_list_title {
+  margin-bottom: 8px;
+}
+
+.live_one_info {
+  padding: 12px 0;
+  background: none;
+}
+
+.disco_list_tab {
+  border: none;
+}
+
+.disco_list_tab select {
+  padding-top: 44px;
+  padding-left: 0 !important;
+  font-family: "游ゴシック", YuGothic, "Helvetica", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
+}
+
+.disco_list_tab select:focus {
+  outline: none;
+}
+
+#disco_list_tab_wrap {
+  background: none;
+}
+
+.disco_list_txt {
+  color: #fff;
+}
+
+.disco_list_txt h3 {
+  margin-bottom: 6px;
+  color: #369cd6;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.disco_list_jk img {
+  margin: 0 auto;
+}
+
+#disco_list_view section {
+  padding: 18px 10px;
+  background: none;
+}
+
+.discography article#discDetail #download_btn {
+  background: #ee2e24;
+}
+
+#buy_title {
+  margin-bottom: 6px;
+  background: none;
+  color: #369cd6;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+#buy_list {
+  background: none;
+}
+
+#buy_list section a {
+  background: #ee2e24;
+}
+
+.p-prof__text img {
+  width: auto;
+  margin: 0 auto 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .l-in {
+    padding: 86px 0 40px;
+  }
+  .l-in__container {
+    width: 710px;
+    width: 94.66667%;
+    padding: 30px 0;
+  }
+  .l-in__header {
+    padding-bottom: 14px;
+  }
+  .l-in__header h2 {
+    width: 100%;
+  }
+  .l-in__footer {
+    width: 670px;
+    width: 94.3662%;
+    padding-top: 8px;
+  }
+  .p-prof {
+    width: 670px;
+    width: 94.3662%;
+  }
+  .p-prof__text img {
+    width: auto;
+    height: auto;
+  }
+  .p-news {
+    width: 100%;
+  }
+  .information #news_list .list-item {
+    padding: 10px 0 14px;
+  }
+  .information #news_list .list-item .list-item__text {
+    padding: 4px 0;
+  }
+  .information #news_list .list-item .list-item__text .list-item__title {
+    padding-bottom: 2px;
+    font-size: 12px;
+  }
+  .information #news_list .list-item .list-item__text .list-item__date {
+    padding-bottom: 2px;
+    font-size: 11px;
+  }
+  .information #news_list .list-item .list-item__text .list-item__article {
+    font-size: 12px;
+  }
+  .information article#news_detail h3 {
+    font-size: 16px;
+  }
+  .contents {
+    width: 670px;
+    width: 94.3662%;
+  }
+  .disco_list_txt h3 {
+    font-size: 15px;
+  }
+  #buy_title {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .information #news_list .list-item {
+    position: relative;
+  }
+  .information #news_list .list-item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #fff;
+    -webkit-transition: width .45s cubic-bezier(.165, .84, .44, 1), height .2s linear;
+    transition: width .45s cubic-bezier(.165, .84, .44, 1), height .2s linear;
+  }
+  .information #news_list .list-item:hover::before {
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+  .information #latest_news ul li {
+    position: relative;
+  }
+  .information #latest_news ul li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #fff;
+    -webkit-transition: width .45s cubic-bezier(.165, .84, .44, 1), height .3s linear;
+    transition: width .45s cubic-bezier(.165, .84, .44, 1), height .3s linear;
+  }
+  .information #latest_news ul li:hover::before {
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+  .live article#liveDetail section.live_one_info {
+    position: relative;
+  }
+  .live article#liveDetail section.live_one_info::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #fff;
+    -webkit-transition: width .45s cubic-bezier(.165, .84, .44, 1), height .3s linear;
+    transition: width .45s cubic-bezier(.165, .84, .44, 1), height .3s linear;
+  }
+  .live article#liveDetail section.live_one_info:hover::before {
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+  .information #news_navi ul li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: #fff;
+    -webkit-transition: width .45s cubic-bezier(.165, .84, .44, 1);
+    transition: width .45s cubic-bezier(.165, .84, .44, 1);
+  }
+  .information #news_navi ul li:first-child::before {
+    top: 0;
+    left: 0;
+  }
+  .information #news_navi ul li:last-child::before {
+    top: 0;
+    right: 0;
+  }
+  .information #news_navi ul li:hover #prev_news, .information #news_navi ul li:hover #next_news {
+    color: #000;
+  }
+  .information #news_navi ul li:hover::before {
+    width: 100%;
+  }
+  .information #news_navi ul li:hover:first-child::before {
+    right: 0;
+    left: auto;
+  }
+  .information #news_navi ul li:hover:last-child::before {
+    left: 0;
+  }
+  .more_btn:hover, .btn__back:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+    background: #ffde2d;
+    color: #000;
+    -webkit-transition: all .55s cubic-bezier(.165, .84, .44, 1);
+    transition: all .55s cubic-bezier(.165, .84, .44, 1);
+  }
+  .more_btn:hover::before, .btn__back:hover::before {
+    width: 0%;
+    height: 0%;
+    -webkit-transition: all .25s cubic-bezier(.165, .84, .44, 1);
+    transition: all .25s cubic-bezier(.165, .84, .44, 1);
+  }
+  .more_btn:hover::after, .btn__back:hover::after {
+    width: 0%;
+    height: 0%;
+    -webkit-transition: all .25s cubic-bezier(.165, .84, .44, 1);
+    transition: all .25s cubic-bezier(.165, .84, .44, 1);
+  }
+}
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56

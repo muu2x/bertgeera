@@ -1,8 +1,17 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Lato:900");
+<<<<<<< HEAD
 /* 
 html5doctor.com Reset Stylesheet
 v1.6.1
+=======
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
@@ -88,7 +97,14 @@ input, select {
   vertical-align: middle;
 }
 
+<<<<<<< HEAD
 
+=======
+/*!
+  Reset Stylesheet
+  Author: yama-dev - https://github.com/yama-dev
+  */
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 body, button, input, select, textarea {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -238,7 +254,10 @@ a:hover {
   opacity: .4;
   -webkit-transition: all .4s;
   transition: all .4s;
+<<<<<<< HEAD
   .photo-caption { opacity: 1; }
+=======
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 }
 
 .l-section.lookbook .lookbook__lineup.active li img {
@@ -348,7 +367,11 @@ a:hover {
 
 .l-footer.foot {
   position: relative;
+<<<<<<< HEAD
   padding: 60px 0 40px;
+=======
+  padding: 80px 0 150px;
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
   background: #f4f4f4;
 }
 
@@ -389,9 +412,12 @@ a:hover {
   margin-right: auto;
   margin-left: auto;
   overflow: hidden;
+<<<<<<< HEAD
   width: auto;
   height: auto;
   overflow: visible;
+=======
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 }
 
 .swiper-container-no-flexbox .swiper-slide {
@@ -408,10 +434,17 @@ a:hover {
 .swiper-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
+<<<<<<< HEAD
   display: flex !important;
   position: relative;
   z-index: 1;
   width: auto;
+=======
+  display: flex;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
   height: 100%;
   box-sizing: content-box;
   transition-property: -webkit-transform;
@@ -423,6 +456,7 @@ a:hover {
 }
 
 .swiper-slide {
+<<<<<<< HEAD
   display: flex;
   position: relative;
   width: auto !important;
@@ -431,11 +465,21 @@ a:hover {
   justify-content: center;
   align-items: center;
   margin: 0;
+=======
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
   -ms-flex: 0 0 auto;
   -ms-flex-negative: 0;
   -webkit-flex-shrink: 0;
   -webkit-flex-shrink: 0;
+<<<<<<< HEAD
   overflow: hidden;
+=======
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 }
 
 .swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
@@ -492,13 +536,18 @@ a:hover {
 
 .modal .modal_content {
   position: relative;
+<<<<<<< HEAD
   max-width: 40vw;
   max-height: 90vw;
   width: auto;
+=======
+  max-width: 800px;
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
   margin: 0 auto;
 }
 
 .modal .modal_content .modal_inner {
+<<<<<<< HEAD
   display: block !important;
   width: auto !important;
   max-width: 90vw;
@@ -508,6 +557,12 @@ a:hover {
   position: relative;
   background: #000;
   overflow: hidden !important;
+=======
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  border: solid 20px #000;
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 }
 
 .modal .modal_content .modal_inner ul li {
@@ -517,6 +572,7 @@ a:hover {
 
 .modal .modal_content .modal_inner .detail_img {
   position: relative;
+<<<<<<< HEAD
   width: auto;
   margin: 0 auto;
   object-fit: cover;
@@ -535,12 +591,25 @@ a:hover {
 }
 
 
+=======
+  width: 100%;
+  margin: 0 auto;
+}
+
+.modal .modal_content .modal_inner .detail_img img {
+  vertical-align: bottom;
+}
+
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 .modal .modal_content .pagerBtn {
   margin-top: 45px;
   letter-spacing: -.4em;
   text-align: center;
+<<<<<<< HEAD
   border: #ffcad4;
   gap: 40px;
+=======
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
 }
 
 .modal .modal_content .pagerBtn .btn_arrow {
@@ -724,6 +793,7 @@ a:hover {
   }
   .modal .modal_content .modal_inner .detail_img {
     width: 100%;
+<<<<<<< HEAD
     overflow: visible !important;
   }
   .modal .modal_content .pagerBtn {
@@ -739,6 +809,14 @@ a:hover {
     cursor: pointer !important;
     pointer-events: auto !important;
     display: block;
+=======
+  }
+  .modal .modal_content .pagerBtn {
+    margin-top: 15px;
+  }
+  .modal .modal_content .pagerBtn .btn_arrow {
+    margin: 0 15px;
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
   }
   .modal .modal_content .pagerBtn .btn_prev {
     width: 50px;
@@ -780,6 +858,7 @@ a:hover {
     display: none;
   }
 }
+<<<<<<< HEAD
 
 .slide-content {
   position: relative;
@@ -832,3 +911,5 @@ a:hover {
 }
 
 }
+=======
+>>>>>>> 7d6d769e7d4d6c28d5b4cdd0122f1a22687c4a56
