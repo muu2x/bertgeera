@@ -9,8 +9,11 @@ var breakpoint = 768;
 $(window).on('load', function () {
   URL.default();
   Link.default();
-  //Info.set();
+  if (linkSlider) {
+    linkSlider.update();
+  }
 });
+  //Info.set();
 var ScrollEffect = void 0;
 var scrollLoad = {
   set: function set() {
