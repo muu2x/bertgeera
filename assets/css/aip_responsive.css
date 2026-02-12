@@ -1556,8 +1556,10 @@ select::-ms-expand {
 
 .information #news_list .list-item {
   position: relative;
-  margin: 0 auto;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 23px 0 23px;
   transition: opacity .7s cubic-bezier(.215, .61, .355, 1) 0s;
 
   border-bottom: 1px solid #3e3e3e;}
+

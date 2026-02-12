@@ -208,3 +208,19 @@ var Ebi = {
     $(Fall.conf.elem + '[data-fall="' + Fall.conf.data[data] + '"]').find('li').eq(index).attr('data-ebi', Math.floor(Math.random() * 100) + 1);
   }
 };
+
+  function showDay(dayNumber) {
+        // Hide all content blocks
+        const contents = document.querySelectorAll('.day-content');
+        contents.forEach(content => content.classList.remove('active'));
+        
+        // Remove active class from blocks
+        const blocks = document.querySelectorAll('.day-block');
+        blocks.forEach(block => block.classList.remove('active'));
+        
+        // Show selected content
+        document.getElementById('day' + dayNumber).classList.add('active');
+        
+        // Highlight clicked block
+        blocks[dayNumber - 1].classList.add('active');
+    }
