@@ -2165,7 +2165,15 @@ a {
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     padding: 50px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    border: 1px solid rgba(255,255,255,0.4);
-  }
 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInBlur 0.8s ease forwards;
+}
+
+@keyframes fadeInBlur {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

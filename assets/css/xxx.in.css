@@ -14,15 +14,13 @@
 }
 
 .l-in {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  opacity: 0;
+  opacity: 1;
+  transform: translateY(20px);
 }
 
 .is-in .l-in {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  opacity: 1;
-  -webkit-transition: opacity .65s cubic-bezier(.165, .84, .44, 1);
-  transition: opacity .65s cubic-bezier(.165, .84, .44, 1);
+  transform: translateY(0);
+  transition: transform .65s cubic-bezier(.165,.84,.44,1);
 }
 
 .l-in {
