@@ -566,7 +566,7 @@ body {
      -moz-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
           text-size-adjust: 100%;
-  word-break: break-all;
+  word-break: normal;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -781,6 +781,8 @@ a {
   font-size: 0;
   letter-spacing: -.4em;
   text-align: right;
+  align-items: center;
+  display: flex;
 }
 
 .l-header__brand {
@@ -998,6 +1000,21 @@ a {
   display: block;
   position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.p-lang_btn {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.p-lang_btn a {
+  display: block;
+  position: absolute;
+  top: 50%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -1955,6 +1972,7 @@ a {
   }
   .l-header__container {
     padding-right: 25px;
+    display: flex;
   }
   .l-header__brand {
     top: 16px;
@@ -1978,7 +1996,11 @@ a {
   .p-youtube_btn {
     width: 156px;
   }
-  .p-menu {
+  .p-lang_btn{
+    width: auto;
+    top: 50%;
+  }
+   .p-menu {
     top: 12px;
     right: 12px;
     width: 45px;
@@ -2029,4 +2051,121 @@ a {
             animation: none;
   }
 }
+
+
+.wedding-faq-container {
+    max-width: 900px;
+    margin: auto;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #f1f1f1;
+    line-height: 1.7;
+}
+
+/* ===== Main Title ===== */
+
+.wedding-faq-container h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+/* ===== Section Headers ===== */
+
+.wedding-faq-container h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+/* ===== Sub Headers ===== */
+
+.wedding-faq-container h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #ffde2d;
+}
+
+.wedding-faq-container h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+/* ===== Paragraphs ===== */
+
+.wedding-faq-container p {
+    margin-bottom: 16px;
+}
+
+/* ===== Lists ===== */
+
+.wedding-faq-container ul {
+    margin: 10px 0 20px 20px;
+    padding-left: 15px;
+}
+
+.wedding-faq-container li {
+    margin-bottom: 8px;
+}
+
+/* ===== Links ===== */
+
+.wedding-faq-container a {
+    color: #8c5e7d;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.wedding-faq-container a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* ===== Notes / PSA ===== */
+
+.wedding-faq-container .note {
+    padding: 15px 20px;
+    border-left: 4px solid #ffde2d;
+    border-right: 4px solid #ffde2d;
+    border-radius: 8px;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+    .wedding-faq-container {
+        padding: 30px 20px;
+        margin: 30px 15px;
+    }
+
+    .wedding-faq-container h1 {
+        font-size: 28px;
+    }
+
+    .wedding-faq-container h2 {
+        font-size: 20px;
+    }
+}
+
+
+.blur-card {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255,255,255,0.4);
+  }
 
