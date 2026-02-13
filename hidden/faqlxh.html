@@ -1,228 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Journey Through the Forest</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jungle Reveal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Arial', sans-serif;
-      overflow-x: hidden;
-    }
+  html, body { width:100%; height:100%; overflow:hidden; background:#040a05; }
 
-    /* INTRO SEQUENCE STYLES */
-    .intro-sequence {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: 9999;
-      background: #000;
-      overflow: hidden;
-      transition: opacity 2s ease-in-out;
-    }
+  /* ─────────────────────────────────────────────────────────
+     Z-INDEX MAP (low → high)
+       1  : .landing       (the destination page, always behind)
+       2  : .vignette      (darkness overlay on landing)
+       3  : .light-beam    (glow tunnel)
+      11  : .panel-r1      (right — exits second)
+      13  : .panel-l1      (left  — exits first)
+      20  : .particles
+     ───────────────────────────────────────────────────────── */
 
-    .layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      transition: transform 4s ease-out, opacity 3s ease-out;
-    }
+  /* ─── LANDING PAGE ──────────────────────────────────────── */
+  .landing {
+    position: fixed; inset: 0; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: radial-gradient(ellipse at 50% 58%,
+      #d4f0c4 0%, #a8d890 28%, #6db87a 55%, #2d6e40 100%);
+    filter: brightness(0) blur(14px);
+    transition: filter 1.4s ease;
+  }
+  .landing.lit { filter: brightness(1) blur(0); }
 
-    /* Layer 3: The Far Background (Mysterious Land) */
-    .background-land {
-      background-image: url('https://files.oaiusercontent.com/file-SgC8L2pM3pM4P8X5R7Z9Q');
-      z-index: 1;
-      transform: scale(1);
-    }
+  .landing-content {
+    text-align: center; opacity: 0; transform: translateY(22px);
+    transition: opacity 1.1s cubic-bezier(0.22,1,0.36,1),
+                transform 1.1s cubic-bezier(0.22,1,0.36,1);
+  }
+  .landing-content.visible { opacity:1; transform:translateY(0); }
 
-    /* Layer 2: The Midground (Bali Jungle) */
-    .foliage-mid {
-      background-image: url('https://files.oaiusercontent.com/file-T6N9L8M7Q4P5R2Z1X3W0');
-      z-index: 2;
-    }
+  .landing h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-style: italic; color: #0a1a0d;
+    letter-spacing: -0.02em; line-height: 1.05;
+  }
+  .landing-deco { width:60px; height:1px; background:#2d6e40; margin:1.4rem auto; }
+  .landing p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem,2.2vw,1.4rem); font-weight:300; color:#1a4a24;
+    letter-spacing:0.28em; text-transform:uppercase;
+  }
 
-    /* Layer 1: The Foreground (Close-up Branches) */
-    .foliage-front {
-      background-image: url('https://files.oaiusercontent.com/file-A1B2C3D4E5F6G7H8I9J0');
-      z-index: 3;
-      filter: blur(4px);
-    }
+  /* ─── VIGNETTE ──────────────────────────────────────────── */
+  .vignette {
+    position: fixed; inset: 0; z-index: 2; pointer-events: none;
+    background: radial-gradient(ellipse 46% 36% at 50% 55%,
+      transparent 0%, rgba(3,9,4,0.5) 50%, rgba(1,4,2,0.97) 100%);
+    opacity: 1;
+    transition: opacity 2s ease;
+  }
+  .vignette.out { opacity: 0; }
 
-    /* The Animation State */
-    .is-walking .foliage-front {
-      transform: scale(4);
-      opacity: 0;
-    }
+  /* ─── LIGHT BEAM ────────────────────────────────────────── */
+  .light-beam {
+    position: fixed; left: 50%; top: 0;
+    width: 2px; height: 100%;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse 55% 50% at 50% 58%,
+      rgba(255,250,220,0.9) 0%, rgba(210,255,170,0.5) 38%,
+      rgba(80,190,90,0.12) 68%, transparent 100%);
+    z-index: 3; pointer-events: none;
+    opacity: 0;
+    transition: width 3s ease, opacity 0.6s ease;
+  }
+  .light-beam.glow {
+    width: 80vw; opacity: 0.5;
+  }
+  .light-beam.out {
+    width: 100vw; opacity: 0;
+  }
 
-    .is-walking .foliage-mid {
-      transform: scale(2.5);
-      opacity: 0;
-    }
+  /* ─── PANELS ────────────────────────────────────────────── */
+  .panel {
+    position: fixed; inset: 0;
+    overflow: hidden;
+    /* panels are ALWAYS in place until .slide class applied */
+    transition: transform 2s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .panel svg { width:100%; height:100%; display:block; }
 
-    .is-walking .background-land {
-      transform: scale(1.2);
-    }
+  /* Stacking: l1 on top, r1 underneath */
+  .panel-l1 { z-index: 13; }
+  .panel-r1 { z-index: 11; transform: scaleX(-1); }
 
-    /* Hide the whole intro once finished */
-    .intro-hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
+  /* slide-out classes added by JS */
+  .panel-l1.slide { transform: translateX(-100%); }
+  .panel-r1.slide { transform: scaleX(-1) translateX(-100%); }
 
-    /* MAIN PAGE STYLES */
-    .main-content {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 1s ease-in;
-      padding: 20px;
-    }
+  /* ─── PARTICLES ─────────────────────────────────────────── */
+  .particle {
+    position: fixed; border-radius: 50% 0 50% 0;
+    pointer-events: none; z-index: 20; opacity: 0;
+    animation: particleDrift linear forwards;
+  }
+  @keyframes particleDrift {
+    0%  { opacity: 1; transform: translate(0,0) rotate(0deg); }
+    100%{ opacity: 0; transform: translate(var(--dx), 88vh) rotate(var(--dr)); }
+  }
 
-    .main-content.visible {
-      opacity: 1;
-    }
-
-    .content-card {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 60px 40px;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      max-width: 600px;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h1 {
-      font-size: 3em;
-      color: #333;
-      margin-bottom: 20px;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-    }
-
-    p {
-      font-size: 1.2em;
-      color: #666;
-      line-height: 1.6;
-    }
-
-    .floating-elements {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .float-item {
-      position: absolute;
-      opacity: 0.3;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .float-item:nth-child(1) {
-      left: 10%;
-      top: 20%;
-      animation-delay: 0s;
-    }
-
-    .float-item:nth-child(2) {
-      left: 80%;
-      top: 40%;
-      animation-delay: 2s;
-    }
-
-    .float-item:nth-child(3) {
-      left: 50%;
-      top: 70%;
-      animation-delay: 4s;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-20px) rotate(180deg);
-      }
-    }
-  </style>
+  .p1{left:14%;top:-1%;width:9px; height:6px; background:#3a8a4a;animation-duration:2s;  --dx:-35px;--dr:210deg;}
+  .p2{left:28%;top:-2%;width:6px; height:10px;background:#2d7a3e;animation-duration:2.4s;--dx:22px; --dr:-155deg;}
+  .p3{right:18%;top:-2%;width:8px; height:6px; background:#3d9450;animation-duration:2s;  --dx:38px; --dr:195deg;}
+  .p4{right:32%;top:2%; width:10px;height:6px; background:#5abf6e;animation-duration:2.4s;--dx:-28px;--dr:-215deg;}
+</style>
 </head>
 <body>
-  <!-- INTRO SEQUENCE -->
-  <div class="intro-sequence" id="introSequence">
-    <div class="layer background-land"></div>
-    <div class="layer foliage-mid"></div>
-    <div class="layer foliage-front"></div>
+
+<!-- z:1 — destination page -->
+<div class="landing">
+  <div class="landing-content">
+    <h1>Into the Wild</h1>
+    <div class="landing-deco"></div>
+    <p>Welcome to the clearing</p>
   </div>
+</div>
 
-  <!-- MAIN CONTENT -->
-  <div class="main-content" id="mainContent">
-    <div class="floating-elements">
-      <div class="float-item" style="font-size: 50px;">🌿</div>
-      <div class="float-item" style="font-size: 50px;">🍃</div>
-      <div class="float-item" style="font-size: 50px;">✨</div>
-    </div>
-    
-    <div class="content-card">
-      <h1>Welcome</h1>
-      <p>You've emerged from the forest into a new realm. Your journey continues here...</p>
-    </div>
-  </div>
+<!-- z:2 — vignette darkness -->
+<div class="vignette"></div>
 
-  <script>
-    // Start the animation immediately on page load
-    window.addEventListener('DOMContentLoaded', () => {
-      const introSequence = document.getElementById('introSequence');
-      const mainContent = document.getElementById('mainContent');
+<!-- z:3 — light beam -->
+<div class="light-beam"></div>
 
-      // Trigger the walking animation after a brief moment
-      setTimeout(() => {
-        introSequence.classList.add('is-walking');
-      }, 500);
+<!-- z:11-13 — jungle panels (always visible until slid away) -->
 
-      // Hide intro and show main content after animation completes
-      setTimeout(() => {
-        introSequence.classList.add('intro-hidden');
-        mainContent.classList.add('visible');
-      }, 5000); // 4s animation + 1s buffer
+<!-- RIGHT PANEL — exits second -->
+<div class="panel panel-r1" id="r1">
+  <svg viewBox="0 0 700 900" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bgR1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#040a05"/>
+        <stop offset="60%"  stop-color="#0b1e0e"/>
+        <stop offset="100%" stop-color="#142e1a"/>
+      </linearGradient>
+    </defs>
+    <rect width="700" height="900" fill="url(#bgR1)"/>
+    <path d="M-30,900 C60,730 160,570 320,410 C410,330 480,240 520,120 C542,55 548,5 538,-25"  fill="none" stroke="#060e07" stroke-width="58" stroke-linecap="round"/>
+    <path d="M-30,900 C60,730 160,570 320,410 C410,330 480,240 520,120 C542,55 548,5 538,-25"  fill="none" stroke="#102514" stroke-width="44" stroke-linecap="round"/>
+    <path d="M90,900  C110,740 175,610 248,458 C308,342 372,228 448,100 C478,44 492,5 484,-28" fill="none" stroke="#07100a" stroke-width="36" stroke-linecap="round"/>
+    <path d="M90,900  C110,740 175,610 248,458 C308,342 372,228 448,100 C478,44 492,5 484,-28" fill="none" stroke="#122c16" stroke-width="26" stroke-linecap="round"/>
+    <path d="M472,55  C600,-72 840,-108 808,42  C780,148 600,148 472,55  Z"  fill="#091f0e" opacity="0.97"/>
+    <path d="M472,55  C562,-8  692,4   734,60  C754,96  618,116 472,55  Z"  fill="#132e18"/>
+    <path d="M430,178 C572,54  812,32  800,172 C788,268 598,262 430,178 Z"  fill="#0c2410" opacity="0.94"/>
+    <path d="M430,178 C542,108 682,102 730,168 C754,214 600,238 430,178 Z"  fill="#183a20"/>
+    <path d="M384,308 C550,206 798,246 778,362 C760,452 560,442 384,308 Z"  fill="#0a2110" opacity="0.93"/>
+    <path d="M384,308 C520,252 668,262 718,342 C738,392 560,412 384,308 Z"  fill="#163620"/>
+    <path d="M322,438 C498,352 748,382 732,488 C718,568 522,562 322,438 Z"  fill="#092010" opacity="0.91"/>
+    <path d="M322,438 C478,388 638,398 682,474 C704,520 514,534 322,438 Z"  fill="#143318"/>
+    <path d="M256,562 C448,486 708,516 692,622 C678,698 484,696 256,562 Z"  fill="#081c0d" opacity="0.90"/>
+    <path d="M256,562 C428,516 608,530 648,608 C668,652 472,666 256,562 Z"  fill="#122c16"/>
+    <path d="M164,688 C376,622 668,652 652,752 C638,822 434,818 164,688 Z"  fill="#071a0c" opacity="0.93"/>
+    <path d="M164,688 C356,642 612,664 636,742 C652,790 438,796 164,688 Z"  fill="#102814"/>
+    <path d="M508,108 C578,38  694,22  678,108 C664,174 548,166 508,108 Z"  fill="#163820" opacity="0.72"/>
+    <path d="M360,378 C446,318 572,340 556,414 C542,464 434,456 360,378 Z"  fill="#142e18" opacity="0.68"/>
+    <path d="M210,618 C300,566 436,586 420,656 C406,704 304,696 210,618 Z"  fill="#102612" opacity="0.68"/>
+    <path d="M548,-8  C574,94  548,190 564,282 C580,362 568,438 536,508"    fill="none" stroke="#0c1e10" stroke-width="3.5" opacity="0.6"/>
+    <rect x="0" y="0" width="80" height="900" fill="#040a05" opacity="0.72"/>
+  </svg>
+</div>
+
+<!-- LEFT PANEL — top of stack, exits first -->
+<div class="panel panel-l1" id="l1">
+  <svg viewBox="0 0 700 900" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bgL1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#040a05"/>
+        <stop offset="60%"  stop-color="#0b1e0e"/>
+        <stop offset="100%" stop-color="#142e1a"/>
+      </linearGradient>
+    </defs>
+    <rect width="700" height="900" fill="url(#bgL1)"/>
+    <path d="M-30,900 C60,730 160,570 320,410 C410,330 480,240 520,120 C542,55 548,5 538,-25"  fill="none" stroke="#060e07" stroke-width="58" stroke-linecap="round"/>
+    <path d="M-30,900 C60,730 160,570 320,410 C410,330 480,240 520,120 C542,55 548,5 538,-25"  fill="none" stroke="#102514" stroke-width="44" stroke-linecap="round"/>
+    <path d="M90,900  C110,740 175,610 248,458 C308,342 372,228 448,100 C478,44 492,5 484,-28" fill="none" stroke="#07100a" stroke-width="36" stroke-linecap="round"/>
+    <path d="M90,900  C110,740 175,610 248,458 C308,342 372,228 448,100 C478,44 492,5 484,-28" fill="none" stroke="#122c16" stroke-width="26" stroke-linecap="round"/>
+    <path d="M472,55  C600,-72 840,-108 808,42  C780,148 600,148 472,55  Z"  fill="#091f0e" opacity="0.97"/>
+    <path d="M472,55  C562,-8  692,4   734,60  C754,96  618,116 472,55  Z"  fill="#132e18"/>
+    <path d="M472,55  L768,12" stroke="#071a0c" stroke-width="1.5" fill="none" opacity="0.5"/>
+    <path d="M430,178 C572,54  812,32  800,172 C788,268 598,262 430,178 Z"  fill="#0c2410" opacity="0.94"/>
+    <path d="M430,178 C542,108 682,102 730,168 C754,214 600,238 430,178 Z"  fill="#183a20"/>
+    <path d="M430,178 L750,140" stroke="#0a1e0e" stroke-width="1.5" fill="none" opacity="0.45"/>
+    <path d="M384,308 C550,206 798,246 778,362 C760,452 560,442 384,308 Z"  fill="#0a2110" opacity="0.93"/>
+    <path d="M384,308 C520,252 668,262 718,342 C738,392 560,412 384,308 Z"  fill="#163620"/>
+    <path d="M322,438 C498,352 748,382 732,488 C718,568 522,562 322,438 Z"  fill="#092010" opacity="0.91"/>
+    <path d="M322,438 C478,388 638,398 682,474 C704,520 514,534 322,438 Z"  fill="#143318"/>
+    <path d="M256,562 C448,486 708,516 692,622 C678,698 484,696 256,562 Z"  fill="#081c0d" opacity="0.90"/>
+    <path d="M256,562 C428,516 608,530 648,608 C668,652 472,666 256,562 Z"  fill="#122c16"/>
+    <path d="M164,688 C376,622 668,652 652,752 C638,822 434,818 164,688 Z"  fill="#071a0c" opacity="0.93"/>
+    <path d="M164,688 C356,642 612,664 636,742 C652,790 438,796 164,688 Z"  fill="#102814"/>
+    <path d="M508,108 C578,38  694,22  678,108 C664,174 548,166 508,108 Z"  fill="#163820" opacity="0.72"/>
+    <path d="M360,378 C446,318 572,340 556,414 C542,464 434,456 360,378 Z"  fill="#142e18" opacity="0.68"/>
+    <path d="M210,618 C300,566 436,586 420,656 C406,704 304,696 210,618 Z"  fill="#102612" opacity="0.68"/>
+    <path d="M548,-8  C574,94  548,190 564,282 C580,362 568,438 536,508"    fill="none" stroke="#0c1e10" stroke-width="3.5" opacity="0.6"/>
+    <path d="M536,508 C514,588 508,662 488,722" fill="none" stroke="#0c1e10" stroke-width="2.5" opacity="0.5"/>
+    <rect x="0" y="0" width="80" height="900" fill="#040a05" opacity="0.72"/>
+  </svg>
+</div>
+
+<!-- z:20 — particles -->
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+
+<script>
+  const SLIDE = 2000;  // ms — matches CSS transition: 2s
+  const GAP   = 500;   // ms — gap between panels
+  const t0    = 300;   // ms — initial pause
+
+  const l1      = document.getElementById('l1');
+  const r1      = document.getElementById('r1');
+  const beam    = document.querySelector('.light-beam');
+  const vignette = document.querySelector('.vignette');
+  const landing  = document.querySelector('.landing');
+  const content  = document.querySelector('.landing-content');
+  const particles = document.querySelectorAll('.particle');
+
+  function fireParticles(ids) {
+    ids.forEach(i => {
+      const p = particles[i];
+      p.style.animationName = 'none';
+      requestAnimationFrame(() => requestAnimationFrame(() => { p.style.animationName = ''; }));
     });
-  </script>
+  }
+
+  // Beam glows on load
+  setTimeout(() => beam.classList.add('glow'), t0);
+
+  // L1 exits first
+  setTimeout(() => {
+    l1.classList.add('slide');
+    fireParticles([0, 1]);
+    landing.style.transition = 'filter 6s ease';
+    landing.style.filter = 'brightness(0.3) blur(8px)';
+  }, t0);
+
+  // R1 exits second (after L1 finishes + gap)
+  setTimeout(() => {
+    r1.classList.add('slide');
+    fireParticles([2, 3]);
+    landing.style.filter = 'brightness(0.7) blur(2px)';
+    beam.classList.add('out');
+    vignette.classList.add('out');
+  }, t0 + SLIDE + GAP);
+
+  // Full brightness + content after R1 clears
+  setTimeout(() => {
+    landing.style.transition = 'filter 1s ease';
+    landing.style.filter = 'brightness(1) blur(0)';
+    content.classList.add('visible');
+  }, t0 + SLIDE + GAP + SLIDE + 200);
+</script>
 </body>
 </html>

@@ -2120,7 +2120,7 @@ a {
 /* ===== Links ===== */
 
 .wedding-faq-container a {
-    color: #8c5e7d;
+    color: #369cd6;
     text-decoration: none;
     font-weight: 500;
     transition: 0.2s ease;
@@ -2265,3 +2265,483 @@ a {
         from { opacity: 0; }
         to { opacity: 1; }
     }
+
+
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream:   #f7f3ee;
+    --sand:    #e8e0d4;
+    --bark:    #ffc8f8;
+    --forest:  #c6faca;
+    --charcoal:#c6faca;
+    --gold:    #ffc8f8;
+    --gap:     clamp(12px, 2vw, 20px);
+  }
+
+
+
+  /* ── SECTION WRAPPER ─────────────────────────────────────── */
+  .outfit-section {
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  /* ── HEADER ──────────────────────────────────────────────── */
+  .outfit-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: clamp(20px, 3vw, 36px);
+  }
+
+  .outfit-header::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+    transform: translateY(-4px);
+  }
+
+  .outfit-eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: clamp(9px, 1.2vw, 11px);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .outfit-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    color: var(--charcoal);
+    line-height: 1;
+    margin-top: 4px;
+  }
+
+  /* ── GRID ────────────────────────────────────────────────── */
+  .outfit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+  }
+
+  /* ── CARD ────────────────────────────────────────────────── */
+  .outfit-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  /* image frame */
+  .outfit-card__frame {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background: var(--sand);
+  }
+
+  .outfit-card__frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 55%,
+      rgba(30, 20, 10, 0.45) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .outfit-card:hover .outfit-card__frame::after {
+    opacity: 1;
+  }
+
+  .outfit-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .outfit-card:hover .outfit-card__img {
+    transform: scale(1.05);
+  }
+
+  /* number badge */
+  .outfit-card__num {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.85);
+    background: rgba(30,20,10,0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 4px 8px;
+    line-height: 1;
+  }
+
+  /* placeholder when no image supplied */
+  .outfit-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--sand);
+    transition: background 0.3s ease;
+  }
+
+  .outfit-card:hover .outfit-card__placeholder {
+    background: #ddd5c8;
+  }
+
+  .outfit-card__placeholder svg {
+    opacity: 0.3;
+  }
+
+  .outfit-card__placeholder-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bark);
+    opacity: 0.6;
+  }
+
+  /* caption below image */
+  .outfit-card__caption {
+    padding: 12px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .outfit-card__label {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: var(--charcoal);
+    line-height: 1.2;
+  }
+
+  .outfit-card__sublabel {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: clamp(9px, 1vw, 11px);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── FOOTER LINE ─────────────────────────────────────────── */
+  .outfit-footer {
+    margin-top: clamp(20px, 3vw, 32px);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .outfit-footer::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--sand);
+  }
+
+  .outfit-footer__note {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--bark);
+    opacity: 0.5;
+    white-space: nowrap;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────────────────── */
+
+  /* Tablet: 2 columns */
+  @media (max-width: 768px) {
+    .outfit-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Mobile: still 2 columns but tighter */
+  @media (max-width: 480px) {
+    .outfit-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .outfit-header {
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .outfit-header::before {
+      display: none;
+    }
+
+    .outfit-card__caption {
+      padding-top: 8px;
+    }
+  }
+
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --grab-green:  #00b14f;
+    --grab-dark:   #00843a;
+    --grab-light:  #e8f9f0;
+    --text-dark:   #111c14;
+    --text-mid:    #4a5c50;
+    --text-soft:   #8a9e90;
+    --white:       #ffffff;
+    --shadow:      0 8px 40px rgba(0, 177, 79, 0.14), 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  /* ── CARD ────────────────────────────────────────────────── */
+  .grab-card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 480px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* top green stripe */
+  .grab-card::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: linear-gradient(90deg, var(--grab-green), #00d65f);
+  }
+
+  /* ── HEADER ──────────────────────────────────────────────── */
+  .grab-header {
+    padding: 22px 22px 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* Grab logo mark — SVG inline */
+  .grab-logo-wrap {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--grab-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,177,79,0.35);
+  }
+
+  .grab-logo-wrap svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .grab-header-text {}
+
+  .grab-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--text-dark);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .grab-tagline {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-soft);
+    letter-spacing: 0.04em;
+    margin-top: 3px;
+  }
+
+  /* ── RATING ROW ──────────────────────────────────────────── */
+  .grab-meta {
+    padding: 10px 22px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .grab-stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .grab-stars svg {
+    width: 13px;
+    height: 13px;
+    fill: #f5b829;
+  }
+
+  .grab-rating-num {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .grab-meta-dot {
+    font-size: 10px;
+    color: var(--text-soft);
+    margin: 0 2px;
+  }
+
+  .grab-meta-label {
+    font-size: 12px;
+    color: var(--text-soft);
+  }
+
+  .grab-badge {
+    margin-left: auto;
+    background: var(--grab-light);
+    color: var(--grab-dark);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 20px;
+  }
+
+  /* ── DIVIDER ─────────────────────────────────────────────── */
+  .grab-divider {
+    margin: 12px 22px;
+    height: 1px;
+    background: #eef1ee;
+  }
+
+  /* ── GOOGLE PLAY BUTTON ──────────────────────────────────── */
+  .grab-download-wrap {
+    padding: 14px 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  /* Official-style Google Play badge */
+  .grab-play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #000;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px 20px 10px 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #222;
+  }
+
+  .grab-play-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  }
+
+  .grab-play-btn:active {
+    transform: translateY(0);
+  }
+
+  .grab-play-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .grab-play-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grab-play-sub {
+    font-size: 9.5px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.75);
+    line-height: 1;
+  }
+
+  .grab-play-name {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  /* buttons row */
+  .grab-btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* App Store button */
+  .grab-apple-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #000;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px 20px 10px 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #222;
+  }
+  .grab-apple-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+  .grab-apple-btn:active { transform: translateY(0); }
+  .grab-apple-icon { width: 24px; height: 24px; flex-shrink: 0; fill: white; }
+
+  /* small print */
+  .grab-fine-print {
+    font-size: 10px;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+
+  .grab-fine-print a {
+    color: var(--grab-green);
+    text-decoration: none;
+  }
+
+  /* ── MOBILE ──────────────────────────────────────────────── */
+  @media (max-width: 400px) {
+    .grab-header        { padding: 18px 16px 0; gap: 12px; }
+    .grab-logo-wrap     { width: 46px; height: 46px; border-radius: 12px; }
+    .grab-logo-wrap svg { width: 26px; height: 26px; }
+    .grab-name          { font-size: 19px; }
+    .grab-meta          { padding: 8px 16px 0; }
+    .grab-divider       { margin: 10px 16px; }
+    .grab-download-wrap { padding: 10px 16px 18px; }
+    .grab-play-name     { font-size: 15px; }
+  }
