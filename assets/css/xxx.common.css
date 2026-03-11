@@ -3082,7 +3082,7 @@ a {
   .favs__sub {
     font-family: 'Caveat', cursive;
     font-size: clamp(14px, 1.8vw, 17px);
-    color: var(--soft);
+    color: var(--soft2);
     line-height: 1.7;
     max-width: 520px;
     margin: 0 auto;
