@@ -25,12 +25,6 @@
   <link rel="icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-  <!-- 共通CSS -->
-  <link rel="stylesheet" type="text/css" media="all" href="../../www.sonymusic.co.jp/common/artistsite/sp/css/base.css">
-  <link rel="stylesheet" type="text/css" media="all" href="../../www.sonymusic.co.jp/common/artistsite/sp/css/aip_common.css">
-  <link rel="stylesheet" type="text/css" media="all" href="../../www.sonymusic.co.jp/common/artistsite/sp/css/aip_disco.css">
-  <link rel="stylesheet" type="text/css" media="all" href="../../www.sonymusic.co.jp/common/artistsite/sp/css/theme_dark.css">
-  <link rel="stylesheet" type="text/css" media="all" href="../../www.sonymusic.co.jp/common/artistsite/sp/css/aip_normal.css">
   <!-- //共通CSS -->
   <link rel="stylesheet" href="../assets/css/aip_responsive.css">
   <link rel="stylesheet" href="../assets/css/xxx.common.css">
@@ -61,52 +55,416 @@
       <li><span><img src="../assets/img/bg_x-y.png" alt=""></span></li>
     </ul>
     <ul class="p-fall p-fall--ebi js-fall" data-fall="ebi">
-      <li><span><img src="../assets/img/bg_ebi.png" alt=""></span></li>
-      <li><span><img src="../assets/img/bg_ebi.png" alt=""></span></li>
-      <li><span><img src="../assets/img/bg_ebi.png" alt=""></span></li>
-      <li><span><img src="../assets/img/bg_ebi.png" alt=""></span></li>
+        <li><span><img src="assets/img/bg_kuro2xl.png" alt=""></span></li>
+        <li><span><img src="assets/img/bg_kuro1.png" alt=""></span></li>
+        <li><span><img src="assets/img/bg_kuro2xl.png" alt=""></span></li>
+        <li><span><img src="assets/img/bg_kuro1.png" alt=""></span></li>
     </ul>
   </div>
+    <div class="l-wrap__container">
+    <div class="l-wrap__header js-header" data-layer="1"><header class="l-header js-header">
+  <div class="l-header__container">
+    <div class="l-header__item">
+      <div class="p-youtube_btn u-glitch-hov">
+        <img src="../assets/img/btn_youtube-ch.png" alt="YouTube official channel">
+        <span class="u-glitch-hov__layer">
+          <img src="../assets/img/btn_youtube-ch.png" alt="YouTube official channel">
+        </span>
+        <a href="qna/index.html" target="_self"></a>
+      </div>
+    </div>
+    <div class="l-header__item"></div>
+  </div>
+</header>
+
+<div class="p-menu js-nav__btn">
+  <div class="p-menu__inner">
+    <img src="../assets/img/btn_menu.png" alt="OPEN" class="p-menu__open">
+    <img src="../assets/img/btn_close.png" alt="CLOSE" class="p-menu__close">
+  </div>
+</div>
+
+<nav class="l-nav js-nav">
+  <div class="l-nav__bg js-nav__close"></div>
+  <div class="l-nav__container">
+    <div class="l-nav__layer"></div>
+    <ul class="p-nav">
+      <li class="p-nav__item u-glitch-hov">
+        <p>INFORMATION</p>
+        <p class="u-glitch-hov__layer">INFORMATION</p>
+        <a href="../information/index.html"></a>
+      </li>
+      <li class="p-nav__item u-glitch-hov">
+        <p>RSVP</p>
+        <p class="u-glitch-hov__layer">RSVP</p>
+        <a href="../rsvp/index.html"></a>
+      </li>
+      <li class="p-nav__item u-glitch-hov">
+        <p>STORY</p>
+        <p class="u-glitch-hov__layer">STORY</p>
+        <a href="index.html"></a>
+      </li>
+      <li class="p-nav__item u-glitch-hov">
+        <p>Q & A</p>
+        <p class="u-glitch-hov__layer">Q & A</p>
+        <a href="../qna/index.html"></a>
+      <li class="p-nav__item u-glitch-hov">
+        <p>SCHEDULE</p>
+        <p class="u-glitch-hov__layer">SCHEDULE</p>
+        <a href="../schedule/index.html"></a>
+      </li>
+      <li class="p-nav__item u-glitch-hov">
+        <p>WEDDING PARTY</p>
+        <p class="u-glitch-hov__layer">WEDDING PARTY</p>
+        <a href="../wparty/index.html" target="_self"></a>
+      </li>
+      <li class="p-nav__item u-glitch-hov">
+        <p>LOOK BOOK</p>
+        <p class="u-glitch-hov__layer">LOOK BOOK</p>
+        <a href="../lookbook_1/index.html" target="_self"></a>
+      </li>
+    </ul>
+  </div>
+</nav></div>
   <div class="l-wrap__container">
     <div class="l-wrap__header js-header" data-layer="2"></div>
     <main class="l-main">
       <section class="l-in js-in disco">
-        <div class="l-in__container">
+        <div class="l-in__container blur-card">
           <div class="l-in__header">
             <div class=" section__title">
-              <h2 class="u-glitch-in js-glitch"><img src="../assets/img/in/title_disco.png" alt="discography"></h2>
+              <h2 class="u-glitch-in js-glitch"><img src="../assets/img/in/title_story.png" alt="discography"></h2>
             </div>
           </div>
           <div class="l-in__inner contents">
-            <!-- AIP AREA -->
-            <div id="disco_list_tab_wrap">
-              <div id="disco_category_tab" class="disco_list_tab">
-                <div id="disco_category_tab_in">
-                  <select class="bgcolorMain">
-                    <option value="all" selected="selected">ALL</option>
-                    <option value="single">SINGLE</option>
-                    <option value="album">ALBUM</option>
-                    <option value="dvd">DVD/BD</option>
-                  </select>
-                  <p id="disco_category_arrow">
-                    <img src="../../www.sonymusic.co.jp/shr_image/assets/sp/common/img/arrowD.png" alt="" width="8">
-                  </p>
-                  <p id="disco_category_name">カテゴリ</p>
-                </div>
-              </div>
-            </div>
-            <div id="disco_area">
-              <div id="disco_list_view" class="active">
-                <div id="disco_list_view_in"></div>
-              </div>
-            </div>
+
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────── -->
+<header class="story-header">
+  <p class="story-header__tag">✨ from strangers to soulmates ✨</p>
+  <h1 class="story-header__title">Angela <span class="story-header__amp">&amp;</span> Bertrand</h1>
+  <p class="story-header__sub">our story, one chapter at a time</p>
+  <div class="story-header__deco">
+    <span class="story-header__heart">♡</span>
+  </div>
+</header>
+
+<!-- ── TIMELINE ───────────────────────────────────────────── -->
+<div class="timeline">
+
+  <!-- 1 -->
+  <div class="tl-item">
+    <div class="tl-card">
+      <div class="tl-date">Sept 2010 – 2014</div>
+      <div class="tl-title">Bayview Secondary School</div>
+      <p class="tl-body">
+        Just an assuming <s>weeb</s> boy and a try-hard gal wandering the halls of Bayview. Other than a few interactions, there was no real association or contact between these two.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">📚 high school</span>
+        <span class="tl-tag sage">strangers</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <img src="../assets/img/story/pic1.png">
+        </div>
+      </div>
+    </div>
+    <div class="tl-dot">🏫</div>
+    <div class="tl-spacer"></div>
+  </div>
+
+  <!-- 2 -->
+  <div class="tl-item">
+    <div class="tl-spacer"></div>
+    <div class="tl-dot">🎮</div>
+    <div class="tl-card">
+      <div class="tl-date">June 2, 2020</div>
+      <div class="tl-title">Valorant drops — and so does everything else</div>
+      <p class="tl-body">
+        Riot officially launches Valorant, a first person tactical shooter game. Angela begins to spend a lot of time playing this with Haowei, and later Bertrand. The pipeline begins.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">🎯 valorant</span>
+        <span class="tl-tag gold">plot twist</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="tl-item">
+    <div class="tl-card">
+      <div class="tl-date">Friday, July 16, 2021</div>
+      <div class="tl-title">The Boys BBQ — a fateful reunion</div>
+      <p class="tl-body">
+        With social distancing finally loosening, "The Boys" have an in-person gathering at Ten Miles BBQ to welcome back Haowei from his exile in San Francisco.<br><br>
+        Angela and Bertrand see each other in person for the first time in 5+ years. 👀
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">🥩 bbq</span>
+        <span class="tl-tag sage">first meeting (again)</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>add a photo ♡</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-dot">🍖</div>
+    <div class="tl-spacer"></div>
+  </div>
+
+  <!-- 4 -->
+  <div class="tl-item">
+    <div class="tl-spacer"></div>
+    <div class="tl-dot">🍂</div>
+    <div class="tl-card">
+      <div class="tl-date">Sunday, October 31, 2021</div>
+      <div class="tl-title">London, Ontario — feelings confessed 🎃</div>
+      <p class="tl-body">
+        After flirting on Discord and in person for many months, Bertrand visits Angela while she's on electives in London, Ontario and they confess their feelings for one another. Given the uncertainty of CaRMS ahead, they decide to see one another without any official labels.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">💬 discord era</span>
+        <span class="tl-tag">🏥 carms survival</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>add a photo ♡</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="tl-item">
+    <div class="tl-card">
+      <div class="tl-date">Tuesday, November 8, 2022</div>
+      <div class="tl-title">Stargazing — it's official! ⭐</div>
+      <p class="tl-body">
+        While stargazing, Bertrand and Angela finally make it official and begin dating! Angela moves back to the GTA to start her Family Medicine residency in Summer 2022.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">🌟 officially dating</span>
+        <span class="tl-tag gold">best night</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <img src="../assets/img/story/pic4.jpeg">
+        </div>
+      </div>
+    </div>
+    <div class="tl-dot">⭐</div>
+    <div class="tl-spacer"></div>
+  </div>
+
+  <!-- 6 -->
+  <div class="tl-item">
+    <div class="tl-spacer"></div>
+    <div class="tl-dot">🇩🇪</div>
+    <div class="tl-card">
+      <div class="tl-date">September 2023</div>
+      <div class="tl-title">First overseas trip — Eastern Germany &amp; Oktoberfest</div>
+      <p class="tl-body">
+        Our first overseas trip together! Eastern Germany — ate the most amazing Döner Kebab (Angela thinks about this a lot), attended Oktoberfest, and had a somewhat exhilarating and suspicious experience on an overnight train 👀 (ask us about this if you want LOL).
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">🍺 oktoberfest</span>
+        <span class="tl-tag">🥙 döner kebab</span>
+        <span class="tl-tag sage">first trip</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <img src="../assets/img/story/pic5b.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="tl-item">
+    <div class="tl-card">
+      <div class="tl-date">November 8, 2023 — 1st Anniversary 🎂</div>
+      <div class="tl-title">Luna Ristorante — a new favourite tradition</div>
+      <p class="tl-body">
+        For their first anniversary, Bertrand took Angela to a family-run Italian restaurant in Newmarket (she was working at Southlake at the time). Luna Ristorante has since become one of their favourite restaurants, especially for special occasions. 🍝
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">🍝 italian</span>
+        <span class="tl-tag gold">anniversary tradition</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>add a photo ♡</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-dot">🍝</div>
+    <div class="tl-spacer"></div>
+  </div>
+
+  <!-- 8 -->
+  <div class="tl-item">
+    <div class="tl-spacer"></div>
+    <div class="tl-dot">🎄</div>
+    <div class="tl-card">
+      <div class="tl-date">Dec 22–23, 2023</div>
+      <div class="tl-title">First family meetups &amp; first Christmas 🎁</div>
+      <p class="tl-body">
+        <strong style="font-weight:500;color:var(--charcoal)">Dec 22:</strong> Angela meets Bertrand's family for the first time.<br><br>
+        <strong style="font-weight:500;color:var(--charcoal)">Dec 23:</strong> Their first Christmas together. 🎄
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">🏠 meeting family</span>
+        <span class="tl-tag sage">new traditions</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>add a photo ♡</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="tl-item">
+    <div class="tl-card">
+      <div class="tl-date">July 2023 (wait — they went back in time! 🤣)</div>
+      <div class="tl-title">China — meeting all the relatives 🇨🇳</div>
+      <p class="tl-body">
+        Bertrand goes to China and meets all of Angela's relatives. Drinks some of them under the table too. 💪 They visited <strong style="font-weight:500;color:var(--charcoal)">张家界</strong> (Avatar Mountains), <strong style="font-weight:500;color:var(--charcoal)">重庆</strong> (Chongqing), and <strong style="font-weight:500;color:var(--charcoal)">成都</strong> (Chengdu). A super memorable moment: night hiking the Great Wall of China.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">🏔️ avatar mountains</span>
+        <span class="tl-tag">🌙 great wall night hike</span>
+        <span class="tl-tag gold">legendary</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <img src="../assets/img/story/pic8.JPG">
+        </div>
+      </div>
+    </div>
+    <div class="tl-dot">🐼</div>
+    <div class="tl-spacer"></div>
+  </div>
+
+  <!-- 10 -->
+  <div class="tl-item">
+    <div class="tl-spacer"></div>
+    <div class="tl-dot">🗼</div>
+    <div class="tl-card">
+      <div class="tl-date">February 2025</div>
+      <div class="tl-title">Valentine's in Paris — but make it spooky</div>
+      <p class="tl-body">
+        Angela whisks Bertrand away on a romantic Valentine's trip to Paris where he drags her to spend Valentine's Day in the Catacombs 💀 Got scammed into the most expensive meal they've ever had (€1,000 — ouch 😭), and brought home a LOT of French butter.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">💀 catacombs date</span>
+        <span class="tl-tag">🧈 butter hoarders</span>
+        <span class="tl-tag sage">paris 2025</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <img src="../assets/img/story/pic9.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="tl-item">
+    <div class="tl-card">
+      <div class="tl-date">May 2025 💍</div>
+      <div class="tl-title">Cappadocia — the proposal at sunrise</div>
+      <p class="tl-body">
+        Bertrand fulfills one of Angela's bucket list items — a hot air balloon ride in Kapadokya (Cappadocia). He proposes at sunrise in Love Valley. She said yes! 🎉
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">🎈 hot air balloon</span>
+        <span class="tl-tag">💍 she said yes!</span>
+        <span class="tl-tag gold">bucket list ✓</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <img src="../assets/img/story/pic10.png">
+        </div>
+      </div>
+    </div>
+    <div class="tl-dot">💍</div>
+    <div class="tl-spacer"></div>
+  </div>
+
+  <!-- 12 -->
+  <div class="tl-item">
+    <div class="tl-spacer"></div>
+    <div class="tl-dot">🏠</div>
+    <div class="tl-card">
+      <div class="tl-date">August 2025</div>
+      <div class="tl-title">Finally — moving in &amp; buying a home</div>
+      <p class="tl-body">
+        Bertrand and Angela finally move in together and buy a home. A new chapter begins! 🏡
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag sage">🏡 homeowners</span>
+        <span class="tl-tag">next adventure</span>
+      </div>
+      <div class="tl-photo">
+        <div class="tl-photo__placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>add a photo ♡</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINALE -->
+  <div class="tl-item finale">
+    <div class="tl-card">
+      <span class="finale-dots">· · · · ·</span>
+      <div class="tl-date" style="font-size:clamp(16px,2.2vw,20px);margin-bottom:12px;">September 2026</div>
+      <div class="finale-title">The Wedding 💍</div>
+      <p class="finale-sub" style="margin-top:10px;">Uluwatu, Bali — and so the story continues ♡</p>
+      <div class="tl-photo wide" style="margin-top:20px;aspect-ratio:16/7;max-width:380px;margin-left:auto;margin-right:auto;">
+        <div class="tl-photo__placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c47d68" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>wedding photo coming soon ♡</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /timeline -->
+
+<!-- ── FAVORITES ──────────────────────────────────────────── -->
+<div class="favs">
+  <div class="story-header__deco" style="margin-bottom:20px;">
+    <span class="story-header__heart">♡</span>
+  </div>
+  <h2 class="favs__title">Our Favourites</h2>
+  <div class="favs__emojis">🎭 🎶 🎬 🍜 ✈️ 🎮</div>
+  <p class="favs__sub">
+    We love going to see all sorts of shows and experiencing new things together — always down for a new adventure, a good meal, or a spontaneous trip.
+  </p>
+</div>
             <!-- //AIP AREA -->
           </div>
           <div class="l-in__footer">
             <div class="more_btn">
               <p class="more_txt">もっと見る</p>
-              <p class="more_load">
-                <img src="../../www.sonymusic.co.jp/common/image/utils/moreLoader.png" alt="" width="300" height="30">
+
               </p>
             </div>
           </div>
@@ -118,13 +476,13 @@
       <div class="l-footer__container">
         <div class="l-footer__nav">
           <ul class="p-f_nav">
-            <li><a href="https://www.sonymusic.co.jp/support/" target="_blank">お問い合わせ</a></li>
-            <li><a href="https://www.sme.co.jp/s/SME/page/privacy_sml" target="_blank">プライバシー・ポリシー</a></li>
+            <li><a href="../index.html" target="_self">OFFICIAL SITE</a></li>
+            <li><a href="../privacy/index.html" target="_self">プライバシー・ポリシー</a></li>
           </ul>
         </div>
         <p class="l-footer__note">このホームページに掲載されている一切の文書・図版・写真等を、 <br class="is-sp">手段や形態を問わず複製、転載することを禁じます。</p>
         <p class="l-footer__copy">
-          <small>&copy; SACRA MUSIC / &copy; KAGUYA LUNA</small>
+          <small>ANGELA FAN / BERTRAND LIN</small>
         </p>
       </div>
       <div class="p-to_top u-flash" data-scroll="top">
