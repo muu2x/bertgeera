@@ -1,13 +1,16 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Anton");
+@import url("../fonts/anton.css");
 .l-nav {
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
+  /* visibility keeps the off-screen menu out of the tab order while closed */
+  visibility: hidden;
   -webkit-transition: all 0s cubic-bezier(.25, .46, .45, .94) 1s;
   transition: all 0s cubic-bezier(.25, .46, .45, .94) 1s;
 }
 
 .l-nav.is-open {
+  visibility: visible;
   -webkit-transform: translateX(0);
           transform: translateX(0);
   -webkit-transition: -webkit-transform 0s linear;
@@ -932,8 +935,7 @@ a {
 
 .profile-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -971,16 +973,17 @@ a {
   padding: 15px;
 }
 
-.profile-info h3 {
+.profile-name {
   margin: 0 0 5px 0;
   font-size: 1.2rem;
-  color: #81d1a5;
 }
 
-.profile-info h4 {
-  margin: 0 0 5px 0;
-  font-size: 1.2rem;
-  color: #e09ddd;
+.profile-name--groom {
+  color: #4e9a72;
+}
+
+.profile-name--bride {
+  color: #a4499e;
 }
 
 .profile-info .title {
@@ -996,12 +999,22 @@ a {
   color: #444;
 }
 
+.party-group__title {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px 0;
+  font-size: 1.1rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
 @media (max-width: 992px) {
   .profile-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
-  .profile-grid { grid-template-columns: repeat(2, 1fr;) }
+  .profile-grid { grid-template-columns: 1fr; }
 }
 
 
@@ -3149,3 +3162,16 @@ a {
     .tl-item.finale { display: block; }
     .tl-item.finale .tl-card { width: 100%; }
   }
+/* Visible keyboard focus.
+   The reset near the top of this file clears outlines on div/li/etc, and several
+   controls (menu button, schedule day tabs) are divs, so they get one back here.
+   The dark ring behind the yellow keeps it legible on the white profile cards. */
+a:focus-visible,
+.day-block:focus-visible,
+.js-nav__btn:focus-visible,
+[role="button"]:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 3px solid #ffde2d;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, .65);
+}

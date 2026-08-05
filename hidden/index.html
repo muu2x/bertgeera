@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dino Lookbook | Access</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Wedding Party Details | Angela &amp; Bertrand</title>
     <link rel="stylesheet" href="assets/css/hidden.common.css">
       <link rel="icon" href="../favicon.ico">
 </head>
@@ -12,10 +13,13 @@
     <div class="login-container">
         <h1>Wedding Party Details</h1>
         <p>Restricted Access</p>
-        
-        <input type="password" id="passwordField" placeholder="Enter Password...">
+
+        <label for="passwordField" class="visually-hidden">Password</label>
+        <input type="password" id="passwordField" placeholder="Enter Password..."
+               autocomplete="off" autocapitalize="off" spellcheck="false">
         <br>
-        <button id="loginBtn">Access > ></button>
+        <button id="loginBtn" type="button">Access &gt; &gt;</button>
+        <p id="loginError" role="alert" hidden>That password isn&rsquo;t right &mdash; try again.</p>
     </div>
 
     <script src="assets/js/hidden.common.js"></script>

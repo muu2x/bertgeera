@@ -1,0 +1,48 @@
+# OS cruft
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editors / IDEs
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+
+# Node tooling (if any build/lint tooling gets added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+package-lock.json.bak
+
+# Claude Code local overrides (keep .claude/agents and settings.json shared)
+.claude/settings.local.json
+
+# Local scratch / build output
+/tmp/
+/.tmp/
+/dist/
+/build/
+*.log
+
+# Image editing sidecars — the exported asset is what ships
+*.psd
+*.xcf
+*.ai~
+*.afdesign
+*.afphoto
+
+# Local preview servers sometimes drop these
+.cache/
+.parcel-cache/

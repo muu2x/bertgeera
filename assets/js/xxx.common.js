@@ -1,10 +1,5 @@
 'use strict';
 
-$(document).ready(function () {
-  Header.default();
-  Footer.default();
-});
-
 $(window).on('load', function () {
   $('.js-wrap').addClass('is-load');
 
@@ -25,40 +20,6 @@ if (/\/discography\/archive\//.test(location.pathname)) {
     }
   }, 3);
 }
-
-var Header = {
-  conf: {
-    elem: '.js-header',
-    path: [null, './assets/inc/header.html', '../assets/inc/header_in.html', '../../assets/inc/header_into.html']
-  },
-  state: {
-    layer: 0
-  },
-  include: function include() {
-    this.state.layer = $(this.conf.elem).attr('data-layer');
-    $(this.conf.elem).load(this.conf.path[this.state.layer]);
-  },
-  default: function _default() {
-    this.include();
-  }
-};
-
-var Footer = {
-  conf: {
-    elem: '.js-footer',
-    path: [null, './assets/inc/footer.html', '../assets/inc/footer.html', '../../assets/inc/footer.html']
-  },
-  state: {
-    layer: 0
-  },
-  include: function include() {
-    this.state.layer = $(this.conf.elem).attr('data-layer');
-    $(this.conf.elem).load(this.conf.path[this.state.layer]);
-  },
-  default: function _default() {
-    this.include();
-  }
-};
 
 var Scroll = { // スクロールアニメーション
   conf: {
@@ -113,13 +74,33 @@ var Nav = {
     var _this2 = this;
 
     $('.js-header').on('click', this.conf.btn, function () {
-      $(_this2.conf.elem).toggleClass('is-open');
-      $(_this2.conf.btn).toggleClass('is-open');
+      _this2.toggle();
     });
     $('.js-header').on('click', this.conf.close, function () {
-      $(_this2.conf.elem).removeClass('is-open');
-      $(_this2.conf.btn).removeClass('is-open');
+      _this2.close();
     });
+    // the menu button is a div, so it needs Enter/Space wired up by hand
+    $('.js-header').on('keydown', this.conf.btn, function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        _this2.toggle();
+      }
+    });
+    $(document).on('keydown', function (e) {
+      if (e.key === 'Escape' && $(_this2.conf.elem).hasClass('is-open')) {
+        _this2.close();
+        $(_this2.conf.btn).focus();
+      }
+    });
+  },
+  toggle: function toggle() {
+    var open = !$(this.conf.elem).hasClass('is-open');
+    $(this.conf.elem).toggleClass('is-open', open);
+    $(this.conf.btn).toggleClass('is-open', open).attr('aria-expanded', String(open));
+  },
+  close: function close() {
+    $(this.conf.elem).removeClass('is-open');
+    $(this.conf.btn).removeClass('is-open').attr('aria-expanded', 'false');
   },
   default: function _default() {
     this.click();
@@ -213,14 +194,38 @@ var Ebi = {
         // Hide all content blocks
         const contents = document.querySelectorAll('.day-content');
         contents.forEach(content => content.classList.remove('active'));
-        
+
         // Remove active class from blocks
         const blocks = document.querySelectorAll('.day-block');
-        blocks.forEach(block => block.classList.remove('active'));
-        
+        blocks.forEach(block => {
+          block.classList.remove('active');
+          block.setAttribute('aria-selected', 'false');
+        });
+
         // Show selected content
         document.getElementById('day' + dayNumber).classList.add('active');
-        
+
         // Highlight clicked block
-        blocks[dayNumber - 1].classList.add('active');
+        const active = blocks[dayNumber - 1];
+        if (active) {
+          active.classList.add('active');
+          active.setAttribute('aria-selected', 'true');
+        }
     }
+
+    // The day tabs are divs, so Enter/Space and arrow keys have to be wired up.
+    document.addEventListener('keydown', function (e) {
+      const tab = e.target.closest && e.target.closest('.day-block');
+      if (!tab) return;
+      const tabs = [...document.querySelectorAll('.day-block')];
+      const i = tabs.indexOf(tab);
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        showDay(i + 1);
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+        next.focus();
+        showDay(tabs.indexOf(next) + 1);
+      }
+    });

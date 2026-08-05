@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Anton");
+@import url("../../../assets/fonts/anton.css");
 
 
 
@@ -2070,14 +2070,14 @@ body, html {
 
 /* Simulated Branches Layer 1 (Front) */
 .foliage-front {
-  background-image: url('branches-front.png'); /* You'll use the images we generate */
+  background-image: url('../img/branches-front.png'); /* You'll use the images we generate */
   z-index: 3;
   filter: blur(5px);
 }
 
 /* Simulated Branches Layer 2 (Mid) */
 .foliage-mid {
-  background-image: url('branches-mid.png');
+  background-image: url('../img/branches-mid.png');
   z-index: 2;
 }
 

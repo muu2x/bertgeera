@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node a11yscan.mjs)",
+      "Bash(node metrics.mjs before-css.json)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

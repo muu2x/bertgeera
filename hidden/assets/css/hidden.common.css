@@ -66,3 +66,25 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
+/* label for the password field, announced but not shown */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* wrong-password message (role="alert", so it is announced when unhidden) */
+#loginError {
+  margin-top: 14px;
+  color: #ff8a8a;
+  font-size: 14px;
+}
+
+#loginError[hidden] { display: none; }

@@ -1,0 +1,9 @@
+# www.bertgeera.love
+User-agent: *
+Allow: /
+
+# Note: the restricted pages are kept out of search results with a
+# <meta name="robots" content="noindex, nofollow"> tag on the pages themselves,
+# deliberately NOT with a Disallow rule here. robots.txt is public, so listing
+# the path would advertise it - and blocking the crawl would stop it ever
+# reading the noindex, letting the URL surface from external links anyway.
