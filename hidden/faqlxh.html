@@ -14,11 +14,8 @@
     --ink:      #0a1a0d;
     --ink-soft: #24422b;
     --moss:     #2d6e40;
-    --fern:     #6db87a;
     --paper:    #f6f2e8;
     --paper-2:  #efe9db;
-    /* darkened from #b08948, which only reached 2.9:1 on the paper - the key
-       ceremony times are printed in this colour, so it has to be readable */
     --gold:     #876326;
     --serif:    'Playfair Display', Georgia, serif;
     --sans:     'Cormorant Garamond', Georgia, serif;
@@ -27,126 +24,83 @@
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-  body {
-    background: #040a05;
-    color: var(--ink);
-    font-family: var(--sans);
-    -webkit-font-smoothing: antialiased;
-  }
-  /* scroll is locked only while the intro is playing */
+  body { background: #f6f2e8; color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
   body.intro-running { overflow: hidden; }
 
   .skip-link {
     position: absolute; left: 8px; top: -60px; z-index: 999;
     padding: 10px 16px; background: var(--ink); color: var(--paper);
-    font-family: var(--sans); letter-spacing: .1em; text-transform: uppercase;
-    font-size: 14px; text-decoration: none; border-radius: 2px;
-    transition: top .2s ease;
+    letter-spacing: .1em; text-transform: uppercase; font-size: 14px;
+    text-decoration: none; border-radius: 2px; transition: top .2s ease;
   }
   .skip-link:focus { top: 8px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
-  :focus-visible {
-    outline: 3px solid var(--gold);
-    outline-offset: 3px;
-  }
+  /* ═══ THE PAGE ═══════════════════════════════════════════ */
+  .page { position: relative; z-index: 1; }
 
-  /* ─── THE CLEARING (the page itself) ─────────────────────── */
-  .landing {
-    position: relative; z-index: 1;
-    min-height: 100vh;
-    background:
-      radial-gradient(ellipse at 50% 22%, #d4f0c4 0%, #a8d890 26%, #6db87a 52%, #2d6e40 100%)
-      fixed;
+  .masthead {
+    min-height: 68vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 80px 20px 64px;
+    background: radial-gradient(ellipse at 50% 30%, #d4f0c4 0%, #a8d890 30%, #6db87a 60%, #2d6e40 100%);
   }
-  /* the intro dims and unblurs this as the panels part */
-  .landing.dimmed { filter: brightness(0) blur(14px); }
+  .masthead__inner > * { opacity: 1; }
+  .lift > * {
+    opacity: 0; transform: translateY(18px);
+    animation: liftIn .9s cubic-bezier(.22,1,.36,1) forwards;
+  }
+  .lift > *:nth-child(1) { animation-delay: .05s; }
+  .lift > *:nth-child(2) { animation-delay: .18s; }
+  .lift > *:nth-child(3) { animation-delay: .31s; }
+  .lift > *:nth-child(4) { animation-delay: .44s; }
+  @keyframes liftIn { to { opacity: 1; transform: translateY(0); } }
 
-  /* ─── HERO ───────────────────────────────────────────────── */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center; padding: 40px 20px 90px;
+  .masthead h1 {
+    font-family: var(--serif); font-weight: 700; font-style: normal;
+    font-size: clamp(2rem, 5.5vw, 3.4rem); color: var(--ink);
+    letter-spacing: .01em; line-height: 1.1;
   }
-  .hero__inner { opacity: 1; transform: none; }
-  .intro-running .hero__inner { opacity: 0; transform: translateY(22px); }
-  .hero__inner.visible {
-    opacity: 1; transform: translateY(0);
-    transition: opacity 1.1s cubic-bezier(.22,1,.36,1), transform 1.1s cubic-bezier(.22,1,.36,1);
-  }
-
-  .hero__eyebrow {
-    font-size: clamp(.8rem, 2vw, 1rem); font-weight: 400;
-    letter-spacing: .42em; text-transform: uppercase;
-    color: var(--ink-soft); margin-bottom: 1.4rem; padding-left: .42em;
-  }
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.8rem, 8vw, 6rem);
-    font-style: italic; font-weight: 400;
-    color: var(--ink); letter-spacing: -.02em; line-height: 1.02;
-  }
-  .landing-deco { width: 64px; height: 1px; background: var(--moss); margin: 1.6rem auto; }
-  .hero__sub {
-    font-size: clamp(1rem, 2.4vw, 1.35rem); font-weight: 300;
+  .rule { width: 58px; height: 1px; background: var(--moss); margin: 1.3rem auto; }
+  .masthead__meta {
+    font-size: clamp(.95rem, 2.2vw, 1.2rem); font-weight: 300;
     letter-spacing: .22em; text-transform: uppercase; color: var(--ink-soft);
   }
-  .hero__scroll {
-    margin-top: 3.2rem; display: inline-block;
-    font-size: 1rem; letter-spacing: .2em; text-transform: uppercase;
-    color: var(--ink); text-decoration: none;
-    border-bottom: 1px solid rgba(10,26,13,.35); padding-bottom: 6px;
+  .masthead__scroll {
+    margin-top: 2.6rem; display: inline-block; font-size: .98rem;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; border-bottom: 1px solid rgba(10,26,13,.35); padding-bottom: 6px;
     transition: border-color .3s ease, letter-spacing .3s ease;
   }
-  .hero__scroll:hover { border-color: var(--ink); letter-spacing: .26em; }
+  .masthead__scroll:hover { border-color: var(--ink); letter-spacing: .26em; }
 
-  /* ─── CONTENT ────────────────────────────────────────────── */
   .sheet {
     background: var(--paper);
-    border-radius: 28px 28px 0 0;
-    box-shadow: 0 -30px 80px rgba(4,10,5,.35);
-    padding: clamp(48px, 8vw, 96px) clamp(20px, 6vw, 64px) 40px;
+    padding: clamp(48px, 8vw, 88px) clamp(20px, 6vw, 64px) 40px;
   }
   .wrap { max-width: 820px; margin: 0 auto; }
-
   .section + .section { margin-top: clamp(56px, 9vw, 104px); }
-
   .section__head { text-align: center; margin-bottom: clamp(32px, 5vw, 56px); }
-  .section__no {
-    font-size: .82rem; letter-spacing: .4em; text-transform: uppercase;
-    color: var(--gold); padding-left: .4em;
-  }
+  .section__no { font-size: .82rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); padding-left: .4em; }
   .section h2 {
     font-family: var(--serif); font-style: italic; font-weight: 400;
-    font-size: clamp(2rem, 5.5vw, 3.2rem); color: var(--ink);
-    margin-top: .35rem; line-height: 1.1;
+    font-size: clamp(2rem, 5.5vw, 3.2rem); color: var(--ink); margin-top: .35rem; line-height: 1.1;
   }
-  .section__note {
-    margin-top: .9rem; font-size: 1.05rem; font-weight: 300;
-    color: var(--ink-soft); line-height: 1.6;
-  }
+  .section__note { margin-top: .9rem; font-size: 1.05rem; font-weight: 300; color: var(--ink-soft); line-height: 1.6; }
 
-  /* ─── SCHEDULE ───────────────────────────────────────────── */
   .day + .day { margin-top: 40px; }
   .day__head {
-    display: flex; align-items: baseline; gap: 14px;
-    padding-bottom: 12px; margin-bottom: 6px;
-    border-bottom: 1px solid rgba(45,110,64,.28);
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    padding-bottom: 12px; margin-bottom: 6px; border-bottom: 1px solid rgba(45,110,64,.28);
   }
-  .day__date {
-    font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--moss);
-    line-height: 1;
-  }
-  .day__name {
-    font-size: 1.02rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft);
-  }
+  .day__date { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--moss); line-height: 1; }
+  .day__name { font-size: 1.02rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); }
 
   .slot { display: flex; gap: 20px; padding: 13px 0; border-bottom: 1px solid rgba(45,110,64,.13); }
   .slot:last-child { border-bottom: 0; }
   .slot__time {
-    flex: 0 0 74px; font-family: var(--serif); font-weight: 700;
-    font-size: 1.02rem; color: var(--ink); padding-top: 1px;
-    font-variant-numeric: tabular-nums;
+    flex: 0 0 74px; font-family: var(--serif); font-weight: 700; font-size: 1.02rem;
+    color: var(--ink); padding-top: 1px; font-variant-numeric: tabular-nums;
   }
   .slot__body { flex: 1; }
   .slot__what { font-size: 1.16rem; color: var(--ink); line-height: 1.35; }
@@ -154,221 +108,229 @@
   .slot--key .slot__what { font-family: var(--serif); font-weight: 700; }
   .slot--key .slot__time { color: var(--gold); }
 
-  /* ─── SLEEPING ───────────────────────────────────────────── */
   .villas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-  .villa {
-    background: var(--paper-2);
-    border: 1px solid rgba(45,110,64,.2);
-    border-radius: 14px; padding: 22px 22px 20px;
-  }
-  .villa__name {
-    font-family: var(--serif); font-size: 1.3rem; font-weight: 700;
-    color: var(--moss); margin-bottom: 2px;
-  }
-  .villa__meta {
-    font-size: .9rem; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 14px;
-  }
+  .villa { background: var(--paper-2); border: 1px solid rgba(45,110,64,.2); border-radius: 14px; padding: 22px 22px 20px; }
+  .villa__name { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--moss); margin-bottom: 2px; }
+  .villa__meta { font-size: .9rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
   .villa ul { list-style: none; }
-  .villa li {
-    padding: 7px 0; font-size: 1.08rem; color: var(--ink);
-    border-bottom: 1px solid rgba(45,110,64,.12);
-  }
+  .villa li { padding: 7px 0; font-size: 1.08rem; color: var(--ink); border-bottom: 1px solid rgba(45,110,64,.12); }
   .villa li:last-child { border-bottom: 0; }
   .villa li span { display: block; font-size: .92rem; color: var(--ink-soft); }
 
   .callout {
-    margin-top: 28px; padding: 18px 22px;
-    background: rgba(45,110,64,.08);
+    margin-top: 28px; padding: 18px 22px; background: rgba(45,110,64,.08);
     border-left: 3px solid var(--moss); border-radius: 0 8px 8px 0;
     font-size: 1.04rem; line-height: 1.6; color: var(--ink-soft);
   }
   .callout strong { color: var(--ink); font-weight: 700; }
 
-  /* ─── FOOTER ─────────────────────────────────────────────── */
   .foot {
     margin-top: clamp(56px, 9vw, 96px); padding-top: 28px;
-    border-top: 1px solid rgba(45,110,64,.22);
-    text-align: center; font-size: .98rem; color: var(--ink-soft);
+    border-top: 1px solid rgba(45,110,64,.22); text-align: center;
+    font-size: .98rem; color: var(--ink-soft);
   }
   .foot a { color: var(--moss); text-decoration: none; border-bottom: 1px solid rgba(45,110,64,.4); }
   .foot a:hover { color: var(--ink); }
   .foot__names { margin-top: 10px; letter-spacing: .2em; text-transform: uppercase; font-size: .85rem; }
 
-  /* ─── INTRO OVERLAY ──────────────────────────────────────── */
-  .reveal { position: fixed; inset: 0; z-index: 50; pointer-events: none; }
-  .reveal.gone { display: none; }
+  /* ═══ THE REVEAL ═════════════════════════════════════════
+     Hidden by default: if JS never runs, or motion is reduced,
+     the visitor simply gets the page.                        */
+  .reveal { display: none; }
+  .reveal.playing {
+    display: block; position: fixed; inset: 0; z-index: 50;
+    pointer-events: none; overflow: hidden;
+  }
+  .reveal.fading { opacity: 0; transition: opacity .9s ease; }
+
+  /* slow push-in: the whole scene creeps toward the viewer */
+  .scene {
+    position: absolute; inset: 0;
+    transform: scale(1.001);
+    transition: transform 5.4s cubic-bezier(.33,.02,.32,1);
+  }
+  .scene.push { transform: scale(1.075); }
+
+  /* dark wash sits above the page, below the foliage - this is what
+     "opens up" so the page appears to brighten without ever filtering it */
+  .wash {
+    position: absolute; inset: 0; z-index: 4; background: #030a04;
+    opacity: 1; transition: opacity 1.25s cubic-bezier(.4,0,.3,1);
+  }
+  .wash.open { opacity: 0; }
+
+  /* warm core behind the canopy - without a light source to silhouette
+     against, the foliage just reads as black */
+  .core {
+    position: absolute; left: 50%; top: 47%; z-index: 5;
+    width: 62vw; height: 54vh; border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background: radial-gradient(ellipse at center,
+      rgba(214,255,178,.9) 0%, rgba(132,212,126,.42) 40%, rgba(60,150,70,.12) 66%, transparent 78%);
+    filter: blur(38px);
+    opacity: .68;
+    transition: opacity 2.2s ease, transform 3.6s cubic-bezier(.33,.02,.32,1);
+  }
+  .core.up { opacity: 1; transform: translate(-50%, -50%) scale(1.75); }
+
+  /* god rays fanning from the gap */
+  .rays { position: absolute; inset: 0; z-index: 6; opacity: 0; transition: opacity 1.6s ease; }
+  .rays.lit { opacity: .6; }
+  .ray {
+    position: absolute; left: 50%; top: -12%;
+    width: 46vw; height: 130%;
+    transform-origin: 50% 0;
+    background: linear-gradient(to bottom, rgba(226,255,198,.5) 0%, rgba(150,225,140,.12) 42%, transparent 78%);
+    filter: blur(22px);
+    animation: raySway 9s ease-in-out infinite alternate;
+  }
+  @keyframes raySway {
+    from { transform: translateX(-50%) rotate(var(--r0)) scaleX(.9); }
+    to   { transform: translateX(-50%) rotate(var(--r1)) scaleX(1.08); }
+  }
+
+  .beam {
+    position: absolute; left: 50%; top: 0; width: 2px; height: 100%;
+    transform: translateX(-50%); z-index: 7; opacity: 0;
+    background: radial-gradient(ellipse 55% 50% at 50% 52%,
+      rgba(255,252,228,.95) 0%, rgba(214,255,176,.55) 34%, rgba(90,200,100,.14) 66%, transparent 100%);
+    transition: width 3.4s cubic-bezier(.3,0,.3,1), opacity .8s ease;
+  }
+  .beam.glow { width: 74vw; opacity: .62; }
+  .beam.out  { width: 108vw; opacity: 0; }
+
+  /* ── foliage layers: three depths per side ──────────────
+     Outer .layer only ever holds the exit move, so at rest it is identity
+     and its clip box lines up with the viewport. All the per-layer variety
+     (scale, offset, rotation) sits on .layer__inner, which is oversized so
+     rotating it never exposes a corner. Keeping the exit transition and the
+     sway animation on separate elements is what stops the parting snapping. */
+  .layer {
+    position: absolute; inset: 0; overflow: hidden;
+    will-change: transform;
+    transition: transform var(--dur, 2400ms) cubic-bezier(.62,.01,.24,1) var(--delay, 0ms);
+  }
+  .layer.part { transform: var(--exit); }
+
+  .layer__inner { position: absolute; inset: -14%; transform: var(--rest, none); }
+  .layer svg { width: 100%; height: 100%; display: block; }
+  .layer--r svg { transform: scaleX(-1); transform-origin: 50% 50%; }
+
+  /* Atmospheric perspective: the light source is behind the gap, so the far
+     canopy is hazy and catches it, and the near canopy is a dark silhouette.
+     Depth reads through haze and scale - dimming everything just made mush. */
+  .layer[data-depth="0"] { z-index: 10; --dur: 2900ms; opacity: .9; filter: brightness(.9) saturate(.55) blur(4px); }
+  .layer[data-depth="1"] { z-index: 12; --dur: 2600ms; filter: brightness(.5) blur(.8px); }
+  .layer[data-depth="2"] { z-index: 14; --dur: 2250ms; filter: brightness(.26) saturate(1.15) blur(1.6px); }
+
+  /* resting sway, so the canopy is alive before it parts.
+     Keyframes build on --rest so each layer sways from its own pose. */
+  .layer__inner.sway { animation: sway var(--sway, 8s) ease-in-out infinite alternate; animation-delay: var(--swayd, 0s); }
+  @keyframes sway {
+    from { transform: var(--rest) rotate(-.55deg) translateY(-5px); }
+    to   { transform: var(--rest) rotate(.6deg)   translateY(5px); }
+  }
+
+  /* ── drifting motes ──────────────────────────────────── */
+  .motes { position: absolute; inset: 0; z-index: 18; }
+  .mote {
+    position: absolute; border-radius: 50% 0 50% 0;
+    opacity: 0; will-change: transform;
+    animation: drift var(--d) linear var(--delay) forwards;
+  }
+  @keyframes drift {
+    0%   { opacity: 0; transform: translate3d(0,0,0) rotate(0deg) scale(.7); }
+    12%  { opacity: var(--o); }
+    78%  { opacity: var(--o); }
+    100% { opacity: 0; transform: translate3d(var(--dx), var(--dy), 0) rotate(var(--dr)) scale(1); }
+  }
+
+  /* exposure bloom at the moment the gap fully opens */
+  .bloom {
+    position: absolute; inset: 0; z-index: 22; opacity: 0;
+    background: radial-gradient(ellipse 60% 46% at 50% 46%, rgba(255,255,244,.92) 0%, rgba(233,255,214,.42) 40%, transparent 76%);
+  }
+  .bloom.flash { animation: bloom 1.9s cubic-bezier(.2,.7,.3,1) forwards; }
+  @keyframes bloom { 0% { opacity: 0; } 34% { opacity: .55; } 100% { opacity: 0; } }
 
   .vignette {
-    position: fixed; inset: 0; z-index: 2; pointer-events: none;
-    background: radial-gradient(ellipse 46% 36% at 50% 55%,
-      transparent 0%, rgba(3,9,4,0.5) 50%, rgba(1,4,2,0.97) 100%);
-    opacity: 1; transition: opacity 2s ease;
+    position: absolute; inset: 0; z-index: 24; pointer-events: none;
+    background: radial-gradient(ellipse 52% 42% at 50% 50%, transparent 0%, rgba(3,9,4,.22) 55%, rgba(1,4,2,.82) 100%);
+    opacity: 1; transition: opacity 2.4s ease;
   }
   .vignette.out { opacity: 0; }
 
-  .light-beam {
-    position: fixed; left: 50%; top: 0; width: 2px; height: 100%;
-    transform: translateX(-50%);
-    background: radial-gradient(ellipse 55% 50% at 50% 58%,
-      rgba(255,250,220,0.9) 0%, rgba(210,255,170,0.5) 38%,
-      rgba(80,190,90,0.12) 68%, transparent 100%);
-    z-index: 3; pointer-events: none; opacity: 0;
-    transition: width 3s ease, opacity .6s ease;
-  }
-  .light-beam.glow { width: 80vw; opacity: .5; }
-  .light-beam.out  { width: 100vw; opacity: 0; }
-
-  .panel {
-    position: fixed; inset: 0; overflow: hidden;
-    transition: transform 2s cubic-bezier(0.76, 0, 0.24, 1);
-  }
-  .panel svg { width: 100%; height: 100%; display: block; }
-  .panel-l1 { z-index: 13; }
-  .panel-r1 { z-index: 11; transform: scaleX(-1); }
-  .panel-l1.slide { transform: translateX(-100%); }
-  .panel-r1.slide { transform: scaleX(-1) translateX(-100%); }
-
-  .particle {
-    position: fixed; border-radius: 50% 0 50% 0;
-    pointer-events: none; z-index: 20; opacity: 0;
-    animation: particleDrift linear forwards;
-  }
-  @keyframes particleDrift {
-    0%   { opacity: 1; transform: translate(0,0) rotate(0deg); }
-    100% { opacity: 0; transform: translate(var(--dx), 88vh) rotate(var(--dr)); }
-  }
-  .p1{left:14%;top:-1%;width:9px; height:6px; background:#3a8a4a;animation-duration:2s;  --dx:-35px;--dr:210deg;}
-  .p2{left:28%;top:-2%;width:6px; height:10px;background:#2d7a3e;animation-duration:2.4s;--dx:22px; --dr:-155deg;}
-  .p3{right:18%;top:-2%;width:8px; height:6px; background:#3d9450;animation-duration:2s;  --dx:38px; --dr:195deg;}
-  .p4{right:32%;top:2%; width:10px;height:6px; background:#5abf6e;animation-duration:2.4s;--dx:-28px;--dr:-215deg;}
-
   .skip-intro {
-    position: fixed; right: 20px; bottom: 20px; z-index: 60;
-    pointer-events: auto;
+    position: fixed; right: 20px; bottom: 20px; z-index: 60; pointer-events: auto;
     padding: 11px 20px; cursor: pointer;
-    background: rgba(4,10,5,.55); color: #e8f3e0;
-    border: 1px solid rgba(232,243,224,.45); border-radius: 999px;
-    font-family: var(--sans); font-size: .95rem;
-    letter-spacing: .18em; text-transform: uppercase;
+    background: rgba(4,10,5,.5); color: #e8f3e0;
+    border: 1px solid rgba(232,243,224,.4); border-radius: 999px;
+    font-family: var(--sans); font-size: .95rem; letter-spacing: .18em; text-transform: uppercase;
     -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+    transition: background .25s ease, opacity .5s ease;
   }
-  .skip-intro:hover { background: rgba(4,10,5,.8); }
+  .skip-intro:hover { background: rgba(4,10,5,.82); }
 
-  /* Anyone who asks for less motion gets the page, not the show. */
   @media (prefers-reduced-motion: reduce) {
-    .reveal { display: none; }
-    .landing { filter: none !important; }
-    .panel, .light-beam, .vignette, .particle { transition: none; animation: none; }
+    .reveal, .reveal.playing { display: none !important; }
+    .lift > * { opacity: 1; transform: none; animation: none; }
   }
 
   @media (max-width: 560px) {
     .slot { gap: 14px; }
     .slot__time { flex-basis: 60px; font-size: .96rem; }
-    .sheet { border-radius: 20px 20px 0 0; }
+    .masthead { min-height: 58vh; }
+    .ray { width: 70vw; }
   }
 </style>
 </head>
-<body class="intro-running">
+<body>
 
 <a class="skip-link" href="#content">Skip to content</a>
 
-<!-- ══ THE CLEARING — the actual page ══════════════════════ -->
-<div class="landing dimmed" id="landing">
+<div class="page" id="page">
 
-  <header class="hero">
-    <div class="hero__inner" id="heroInner">
-      <p class="hero__eyebrow">Wedding Party</p>
-      <h1>Into the Wild</h1>
-      <div class="landing-deco"></div>
-      <p class="hero__sub">Uluwatu, Bali &middot; 8&ndash;10 September 2026</p>
-      <a class="hero__scroll" href="#schedule">The details &darr;</a>
+  <header class="masthead">
+    <div class="masthead__inner" id="masthead">
+      <h1>Wedding Party</h1>
+      <div class="rule"></div>
+      <p class="masthead__meta">Uluwatu, Bali &middot; 8&ndash;10 September 2026</p>
+      <a class="masthead__scroll" href="#schedule">The details &darr;</a>
     </div>
   </header>
 
   <div class="sheet">
     <main class="wrap" id="content">
 
-      <!-- ── SCHEDULE ───────────────────────────────────────── -->
       <section class="section" id="schedule">
         <div class="section__head">
           <p class="section__no">One</p>
           <h2>Schedule</h2>
-          <p class="section__note">Three days at Stone Villas Uluwatu. Times marked in gold are the ones you cannot be late for.</p>
+          <p class="section__note">Three days at Stone Villas Uluwatu. Times in gold are the ones you cannot be late for.</p>
         </div>
 
         <div class="day">
-          <div class="day__head">
-            <span class="day__date">Sep 8</span>
-            <span class="day__name">Tuesday &middot; Arrival</span>
-          </div>
-          <div class="slot">
-            <div class="slot__time">12:00</div>
-            <div class="slot__body"><span class="slot__what">Arrive at the airport</span>
-              <span class="slot__where">Ngurah Rai International (DPS)</span></div>
-          </div>
-          <div class="slot">
-            <div class="slot__time">14:00</div>
-            <div class="slot__body"><span class="slot__what">Check in and settle</span>
-              <span class="slot__where">Stone Villas Uluwatu</span></div>
-          </div>
-          <div class="slot">
-            <div class="slot__time">17:00</div>
-            <div class="slot__body"><span class="slot__what">Dinner together</span>
-              <span class="slot__where">Optional &mdash; come if you are awake</span></div>
-          </div>
+          <div class="day__head"><span class="day__date">Sep 8</span><span class="day__name">Tuesday &middot; Arrival</span></div>
+          <div class="slot"><div class="slot__time">12:00</div><div class="slot__body"><span class="slot__what">Arrive at the airport</span><span class="slot__where">Ngurah Rai International (DPS)</span></div></div>
+          <div class="slot"><div class="slot__time">14:00</div><div class="slot__body"><span class="slot__what">Check in and settle</span><span class="slot__where">Stone Villas Uluwatu</span></div></div>
+          <div class="slot"><div class="slot__time">17:00</div><div class="slot__body"><span class="slot__what">Dinner together</span><span class="slot__where">Optional &mdash; come if you are awake</span></div></div>
         </div>
 
         <div class="day">
-          <div class="day__head">
-            <span class="day__date">Sep 9</span>
-            <span class="day__name">Wednesday &middot; Wedding Day</span>
-          </div>
-          <div class="slot slot--key">
-            <div class="slot__time">09:00</div>
-            <div class="slot__body"><span class="slot__what">Tea ceremony</span>
-              <span class="slot__where">Wedding party attending</span></div>
-          </div>
-          <div class="slot">
-            <div class="slot__time">16:30</div>
-            <div class="slot__body"><span class="slot__what">Guests arrive</span></div>
-          </div>
-          <div class="slot slot--key">
-            <div class="slot__time">17:00</div>
-            <div class="slot__body"><span class="slot__what">Ceremony</span></div>
-          </div>
-          <div class="slot">
-            <div class="slot__time">17:00</div>
-            <div class="slot__body"><span class="slot__what">Cocktail hour</span>
-              <span class="slot__where">Straight after the ceremony</span></div>
-          </div>
-          <div class="slot">
-            <div class="slot__time">19:00</div>
-            <div class="slot__body"><span class="slot__what">Dinner</span></div>
-          </div>
-          <div class="slot">
-            <div class="slot__time">21:00</div>
-            <div class="slot__body"><span class="slot__what">Afterparty</span></div>
-          </div>
+          <div class="day__head"><span class="day__date">Sep 9</span><span class="day__name">Wednesday &middot; Wedding Day</span></div>
+          <div class="slot slot--key"><div class="slot__time">09:00</div><div class="slot__body"><span class="slot__what">Tea ceremony</span><span class="slot__where">Wedding party attending</span></div></div>
+          <div class="slot"><div class="slot__time">16:30</div><div class="slot__body"><span class="slot__what">Guests arrive</span></div></div>
+          <div class="slot slot--key"><div class="slot__time">17:00</div><div class="slot__body"><span class="slot__what">Ceremony</span></div></div>
+          <div class="slot"><div class="slot__time">17:00</div><div class="slot__body"><span class="slot__what">Cocktail hour</span><span class="slot__where">Straight after the ceremony</span></div></div>
+          <div class="slot"><div class="slot__time">19:00</div><div class="slot__body"><span class="slot__what">Dinner</span></div></div>
+          <div class="slot"><div class="slot__time">21:00</div><div class="slot__body"><span class="slot__what">Afterparty</span></div></div>
         </div>
 
         <div class="day">
-          <div class="day__head">
-            <span class="day__date">Sep 10</span>
-            <span class="day__name">Thursday &middot; Farewell</span>
-          </div>
-          <div class="slot">
-            <div class="slot__time">11:00</div>
-            <div class="slot__body"><span class="slot__what">Check out</span></div>
-          </div>
-          <div class="slot">
-            <div class="slot__time">13:00</div>
-            <div class="slot__body"><span class="slot__what">Lunch</span></div>
-          </div>
-          <div class="slot">
-            <div class="slot__time">15:00</div>
-            <div class="slot__body"><span class="slot__what">Head home</span></div>
-          </div>
+          <div class="day__head"><span class="day__date">Sep 10</span><span class="day__name">Thursday &middot; Farewell</span></div>
+          <div class="slot"><div class="slot__time">11:00</div><div class="slot__body"><span class="slot__what">Check out</span></div></div>
+          <div class="slot"><div class="slot__time">13:00</div><div class="slot__body"><span class="slot__what">Lunch</span></div></div>
+          <div class="slot"><div class="slot__time">15:00</div><div class="slot__body"><span class="slot__what">Head home</span></div></div>
         </div>
 
         <p class="callout">
@@ -378,13 +340,11 @@
         </p>
       </section>
 
-      <!-- ── SLEEPING ───────────────────────────────────────── -->
       <!--
         TO FILL IN: one .villa block per villa or room.
-          .villa__name  - the villa or room name
-          .villa__meta  - nights, bed setup, whatever is useful
-          each <li>     - one person; the optional <span> is a sub-note
-        Everyone in the wedding party is listed below but not yet assigned.
+          .villa__name - villa or room name
+          .villa__meta - nights, bed setup, whatever is useful
+          each <li>    - one person; the optional <span> is a sub-note
       -->
       <section class="section" id="sleeping">
         <div class="section__head">
@@ -404,7 +364,6 @@
               <li>Tim Cheung</li>
             </ul>
           </div>
-
           <div class="villa">
             <p class="villa__name">Villa &mdash; to be confirmed</p>
             <p class="villa__meta">Bridesmaids</p>
@@ -419,7 +378,7 @@
 
         <p class="callout">
           Villa names, bed setups and who is sharing with whom are
-          <strong>still to be confirmed</strong>. Once you have them, they drop into the two cards above.
+          <strong>still to be confirmed</strong>. Once you have them, they drop into the cards above.
         </p>
       </section>
 
@@ -432,50 +391,22 @@
   </div>
 </div>
 
-<!-- ══ INTRO OVERLAY ═══════════════════════════════════════ -->
+<!-- ═══ REVEAL OVERLAY (built by JS, hidden without it) ═══ -->
 <div class="reveal" id="reveal" aria-hidden="true">
-  <div class="vignette"></div>
-  <div class="light-beam"></div>
-
-
-  <!-- RIGHT PANEL - exits second -->
-  <div class="panel panel-r1" id="r1">
-  <svg viewBox="0 0 700 900" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="bgR1" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%"   stop-color="#040a05"/>
-        <stop offset="60%"  stop-color="#0b1e0e"/>
-        <stop offset="100%" stop-color="#142e1a"/>
-      </linearGradient>
-    </defs>
-    <rect width="700" height="900" fill="url(#bgR1)"/>
-    <path d="M-30,900 C60,730 160,570 320,410 C410,330 480,240 520,120 C542,55 548,5 538,-25"  fill="none" stroke="#060e07" stroke-width="58" stroke-linecap="round"/>
-    <path d="M-30,900 C60,730 160,570 320,410 C410,330 480,240 520,120 C542,55 548,5 538,-25"  fill="none" stroke="#102514" stroke-width="44" stroke-linecap="round"/>
-    <path d="M90,900  C110,740 175,610 248,458 C308,342 372,228 448,100 C478,44 492,5 484,-28" fill="none" stroke="#07100a" stroke-width="36" stroke-linecap="round"/>
-    <path d="M90,900  C110,740 175,610 248,458 C308,342 372,228 448,100 C478,44 492,5 484,-28" fill="none" stroke="#122c16" stroke-width="26" stroke-linecap="round"/>
-    <path d="M472,55  C600,-72 840,-108 808,42  C780,148 600,148 472,55  Z"  fill="#091f0e" opacity="0.97"/>
-    <path d="M472,55  C562,-8  692,4   734,60  C754,96  618,116 472,55  Z"  fill="#132e18"/>
-    <path d="M430,178 C572,54  812,32  800,172 C788,268 598,262 430,178 Z"  fill="#0c2410" opacity="0.94"/>
-    <path d="M430,178 C542,108 682,102 730,168 C754,214 600,238 430,178 Z"  fill="#183a20"/>
-    <path d="M384,308 C550,206 798,246 778,362 C760,452 560,442 384,308 Z"  fill="#0a2110" opacity="0.93"/>
-    <path d="M384,308 C520,252 668,262 718,342 C738,392 560,412 384,308 Z"  fill="#163620"/>
-    <path d="M322,438 C498,352 748,382 732,488 C718,568 522,562 322,438 Z"  fill="#092010" opacity="0.91"/>
-    <path d="M322,438 C478,388 638,398 682,474 C704,520 514,534 322,438 Z"  fill="#143318"/>
-    <path d="M256,562 C448,486 708,516 692,622 C678,698 484,696 256,562 Z"  fill="#081c0d" opacity="0.90"/>
-    <path d="M256,562 C428,516 608,530 648,608 C668,652 472,666 256,562 Z"  fill="#122c16"/>
-    <path d="M164,688 C376,622 668,652 652,752 C638,822 434,818 164,688 Z"  fill="#071a0c" opacity="0.93"/>
-    <path d="M164,688 C356,642 612,664 636,742 C652,790 438,796 164,688 Z"  fill="#102814"/>
-    <path d="M508,108 C578,38  694,22  678,108 C664,174 548,166 508,108 Z"  fill="#163820" opacity="0.72"/>
-    <path d="M360,378 C446,318 572,340 556,414 C542,464 434,456 360,378 Z"  fill="#142e18" opacity="0.68"/>
-    <path d="M210,618 C300,566 436,586 420,656 C406,704 304,696 210,618 Z"  fill="#102612" opacity="0.68"/>
-    <path d="M548,-8  C574,94  548,190 564,282 C580,362 568,438 536,508"    fill="none" stroke="#0c1e10" stroke-width="3.5" opacity="0.6"/>
-    <rect x="0" y="0" width="80" height="900" fill="#040a05" opacity="0.72"/>
-  </svg>
+  <div class="scene" id="scene">
+    <div class="wash" id="wash"></div>
+    <div class="core" id="core"></div>
+    <div class="rays" id="rays"></div>
+    <div class="beam" id="beam"></div>
+    <div class="layers" id="layers"></div>
+    <div class="motes" id="motes"></div>
+    <div class="bloom" id="bloom"></div>
+    <div class="vignette" id="vignette"></div>
+  </div>
 </div>
 
-  <!-- LEFT PANEL - exits first -->
-  <div class="panel panel-l1" id="l1">
-  <svg viewBox="0 0 700 900" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+
+<template id="tplL"><svg viewBox="0 0 700 900" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="bgL1" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%"   stop-color="#040a05"/>
@@ -508,102 +439,199 @@
     <path d="M548,-8  C574,94  548,190 564,282 C580,362 568,438 536,508"    fill="none" stroke="#0c1e10" stroke-width="3.5" opacity="0.6"/>
     <path d="M536,508 C514,588 508,662 488,722" fill="none" stroke="#0c1e10" stroke-width="2.5" opacity="0.5"/>
     <rect x="0" y="0" width="80" height="900" fill="#040a05" opacity="0.72"/>
-  </svg>
-</div>
-
-  <div class="particle p1"></div>
-  <div class="particle p2"></div>
-  <div class="particle p3"></div>
-  <div class="particle p4"></div>
-</div>
-
-<button class="skip-intro" id="skipIntro" type="button">Skip</button>
+  </svg></template>
+<template id="tplR"><svg viewBox="0 0 700 900" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bgR1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#040a05"/>
+        <stop offset="60%"  stop-color="#0b1e0e"/>
+        <stop offset="100%" stop-color="#142e1a"/>
+      </linearGradient>
+    </defs>
+    <rect width="700" height="900" fill="url(#bgR1)"/>
+    <path d="M-30,900 C60,730 160,570 320,410 C410,330 480,240 520,120 C542,55 548,5 538,-25"  fill="none" stroke="#060e07" stroke-width="58" stroke-linecap="round"/>
+    <path d="M-30,900 C60,730 160,570 320,410 C410,330 480,240 520,120 C542,55 548,5 538,-25"  fill="none" stroke="#102514" stroke-width="44" stroke-linecap="round"/>
+    <path d="M90,900  C110,740 175,610 248,458 C308,342 372,228 448,100 C478,44 492,5 484,-28" fill="none" stroke="#07100a" stroke-width="36" stroke-linecap="round"/>
+    <path d="M90,900  C110,740 175,610 248,458 C308,342 372,228 448,100 C478,44 492,5 484,-28" fill="none" stroke="#122c16" stroke-width="26" stroke-linecap="round"/>
+    <path d="M472,55  C600,-72 840,-108 808,42  C780,148 600,148 472,55  Z"  fill="#091f0e" opacity="0.97"/>
+    <path d="M472,55  C562,-8  692,4   734,60  C754,96  618,116 472,55  Z"  fill="#132e18"/>
+    <path d="M430,178 C572,54  812,32  800,172 C788,268 598,262 430,178 Z"  fill="#0c2410" opacity="0.94"/>
+    <path d="M430,178 C542,108 682,102 730,168 C754,214 600,238 430,178 Z"  fill="#183a20"/>
+    <path d="M384,308 C550,206 798,246 778,362 C760,452 560,442 384,308 Z"  fill="#0a2110" opacity="0.93"/>
+    <path d="M384,308 C520,252 668,262 718,342 C738,392 560,412 384,308 Z"  fill="#163620"/>
+    <path d="M322,438 C498,352 748,382 732,488 C718,568 522,562 322,438 Z"  fill="#092010" opacity="0.91"/>
+    <path d="M322,438 C478,388 638,398 682,474 C704,520 514,534 322,438 Z"  fill="#143318"/>
+    <path d="M256,562 C448,486 708,516 692,622 C678,698 484,696 256,562 Z"  fill="#081c0d" opacity="0.90"/>
+    <path d="M256,562 C428,516 608,530 648,608 C668,652 472,666 256,562 Z"  fill="#122c16"/>
+    <path d="M164,688 C376,622 668,652 652,752 C638,822 434,818 164,688 Z"  fill="#071a0c" opacity="0.93"/>
+    <path d="M164,688 C356,642 612,664 636,742 C652,790 438,796 164,688 Z"  fill="#102814"/>
+    <path d="M508,108 C578,38  694,22  678,108 C664,174 548,166 508,108 Z"  fill="#163820" opacity="0.72"/>
+    <path d="M360,378 C446,318 572,340 556,414 C542,464 434,456 360,378 Z"  fill="#142e18" opacity="0.68"/>
+    <path d="M210,618 C300,566 436,586 420,656 C406,704 304,696 210,618 Z"  fill="#102612" opacity="0.68"/>
+    <path d="M548,-8  C574,94  548,190 564,282 C580,362 568,438 536,508"    fill="none" stroke="#0c1e10" stroke-width="3.5" opacity="0.6"/>
+    <rect x="0" y="0" width="80" height="900" fill="#040a05" opacity="0.72"/>
+  </svg></template>
 
 <script>
 (function () {
-  var SLIDE = 2000, GAP = 900, t0 = 700;
-
-  var body    = document.body;
-  var reveal  = document.getElementById('reveal');
-  var skipBtn = document.getElementById('skipIntro');
-  var landing = document.getElementById('landing');
-  var heroIn  = document.getElementById('heroInner');
-  var l1      = document.getElementById('l1');
-  var r1      = document.getElementById('r1');
-  var beam    = document.querySelector('.light-beam');
-  var vignette = document.querySelector('.vignette');
-  var particles = document.querySelectorAll('.particle');
-  var timers = [];
-
-  function store(key, val) { try { sessionStorage.setItem(key, val); } catch (e) {} }
-  function read(key) { try { return sessionStorage.getItem(key); } catch (e) { return null; } }
-
-  // End state: no overlay, page scrollable, content visible.
-  function finish(instant) {
-    timers.forEach(clearTimeout);
-    timers = [];
-    landing.classList.remove('dimmed');
-    landing.style.filter = '';
-    if (instant) landing.style.transition = 'none';
-    body.classList.remove('intro-running');
-    heroIn.classList.add('visible');
-    reveal.classList.add('gone');
-    if (skipBtn) skipBtn.remove();
-  }
+  var reveal = document.getElementById('reveal');
+  if (!reveal) return;
 
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var alreadySeen = read('bg-wp-intro') === '1';
+  function read(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
+  function write(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
 
-  // Play the reveal once per session, and never for reduced-motion visitors.
-  if (reduced || alreadySeen) { finish(true); return; }
-  store('bg-wp-intro', '1');
+  var masthead = document.getElementById('masthead');
 
-  function fireParticles(ids) {
-    ids.forEach(function (i) {
-      var p = particles[i];
-      if (!p) return;
-      p.style.animationName = 'none';
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () { p.style.animationName = ''; });
-      });
-    });
-  }
+  // Reduced motion, or already seen this session: just show the page.
+  if (reduced || read('bg-wp-intro') === '1') { return; }
+  write('bg-wp-intro', '1');
 
-  skipBtn.addEventListener('click', function () { finish(true); });
-  document.addEventListener('keydown', function onEsc(e) {
-    if (e.key === 'Escape') { finish(true); document.removeEventListener('keydown', onEsc); }
+  var scene    = document.getElementById('scene');
+  var wash     = document.getElementById('wash');
+  var core     = document.getElementById('core');
+  var raysBox  = document.getElementById('rays');
+  var beam     = document.getElementById('beam');
+  var layersBox = document.getElementById('layers');
+  var motesBox = document.getElementById('motes');
+  var bloom    = document.getElementById('bloom');
+  var vignette = document.getElementById('vignette');
+  var tplL = document.getElementById('tplL');
+  var tplR = document.getElementById('tplR');
+  var timers = [];
+  var at = function (ms, fn) { timers.push(setTimeout(fn, ms)); };
+
+  // ── build three foliage depths per side from the two drawings ──
+  // Only two drawings exist, so each is reused three times. Every copy gets a
+  // different scale, offset and rotation, and the two sides are deliberately
+  // not mirror images - otherwise the repeats read as wallpaper.
+  // depth 0 = far (hazy, catches the light), 2 = near (dark, exits past the camera)
+  var POSE = {
+    l: [
+      { rest: 'scale(1.16) rotate(-7deg)   translate(-5%, -7%)', exit: 'translate(-62%, -3%) scale(1.06) rotate(-2deg)' },
+      { rest: 'scale(1.12) rotate(4.5deg)  translate(4%, 5%)',   exit: 'translate(-96%, 2%)  scale(1.18) rotate(-4deg)' },
+      { rest: 'scale(1.34) rotate(-2deg)   translate(-2%, 2%)',  exit: 'translate(-140%, 5%) scale(1.52) rotate(-7deg)' }
+    ],
+    r: [
+      { rest: 'scale(1.20) rotate(6deg)    translate(5%, -5%)',  exit: 'translate(62%, -4%)  scale(1.08) rotate(3deg)' },
+      { rest: 'scale(1.09) rotate(-5.5deg) translate(-5%, 6%)',  exit: 'translate(96%, 3%)   scale(1.16) rotate(5deg)' },
+      { rest: 'scale(1.30) rotate(2.5deg)  translate(3%, 1%)',   exit: 'translate(140%, 6%)  scale(1.56) rotate(8deg)' }
+    ]
+  };
+  var layers = [];
+  ['l', 'r'].forEach(function (side) {
+    for (var d = 0; d < 3; d++) {
+      var pose = POSE[side][d];
+      var el = document.createElement('div');
+      el.className = 'layer layer--' + side;
+      el.setAttribute('data-depth', d);
+      el.style.setProperty('--exit', pose.exit);
+      el.style.setProperty('--delay', (d * 170) + 'ms');
+
+      var inner = document.createElement('div');
+      inner.className = 'layer__inner sway';
+      inner.style.setProperty('--rest', pose.rest);
+      inner.style.setProperty('--sway', (7.5 + d * 1.6) + 's');
+      inner.style.setProperty('--swayd', ((side === 'l' ? 0 : -1.4) - d * 0.5) + 's');
+      inner.appendChild((side === 'l' ? tplL : tplR).content.cloneNode(true));
+
+      el.appendChild(inner);
+      layersBox.appendChild(el);
+      layers.push(el);
+    }
   });
 
-  timers.push(setTimeout(function () { beam.classList.add('glow'); }, t0));
+  // ── god rays ──
+  var RAYS = [[-16, -9], [-7, -2], [1, 6], [9, 15], [17, 24]];
+  RAYS.forEach(function (r, i) {
+    var el = document.createElement('div');
+    el.className = 'ray';
+    el.style.setProperty('--r0', r[0] + 'deg');
+    el.style.setProperty('--r1', r[1] + 'deg');
+    el.style.animationDelay = (-i * 1.3) + 's';
+    el.style.opacity = 0.35 + (i % 2) * 0.3;
+    raysBox.appendChild(el);
+  });
 
-  // left panel exits first
-  timers.push(setTimeout(function () {
-    l1.classList.add('slide');
-    fireParticles([0, 1]);
-    landing.classList.remove('dimmed');
-    landing.style.transition = 'filter 6s ease';
-    landing.style.filter = 'brightness(0.3) blur(8px)';
-  }, t0));
+  // ── drifting motes: leaves near the camera, pollen deeper in ──
+  var GREENS = ['#3a8a4a', '#2d7a3e', '#5abf6e', '#7fd48c', '#a8e0a2'];
+  // deterministic pseudo-random so the look is repeatable
+  var seed = 7;
+  function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+  for (var i = 0; i < 30; i++) {
+    var near = i % 3 === 0;                     // every third is a big blurred near-leaf
+    var m = document.createElement('div');
+    m.className = 'mote';
+    var size = near ? 9 + rnd() * 9 : 3 + rnd() * 4;
+    m.style.width  = size + 'px';
+    m.style.height = (size * (0.55 + rnd() * 0.5)) + 'px';
+    m.style.background = GREENS[(i + (rnd() * 5 | 0)) % GREENS.length];
+    m.style.left = (4 + rnd() * 92) + '%';
+    m.style.top  = (-8 - rnd() * 14) + '%';
+    if (near) m.style.filter = 'blur(1.6px)';
+    m.style.setProperty('--o', near ? 0.85 : 0.6);
+    m.style.setProperty('--dx', ((rnd() * 2 - 1) * (near ? 130 : 70)).toFixed(0) + 'px');
+    m.style.setProperty('--dy', (78 + rnd() * 34) + 'vh');
+    m.style.setProperty('--dr', ((rnd() * 2 - 1) * 460).toFixed(0) + 'deg');
+    m.style.setProperty('--d', (near ? 3.4 + rnd() * 2 : 5 + rnd() * 3.4).toFixed(2) + 's');
+    m.style.setProperty('--delay', (rnd() * 2.6).toFixed(2) + 's');
+    motesBox.appendChild(m);
+  }
 
-  // right panel follows
-  timers.push(setTimeout(function () {
-    r1.classList.add('slide');
-    fireParticles([2, 3]);
-    landing.style.filter = 'brightness(0.7) blur(2px)';
-    beam.classList.add('out');
+  // ── run it ──
+  document.body.classList.add('intro-running');
+  reveal.classList.add('playing');
+
+  var skip = document.createElement('button');
+  skip.className = 'skip-intro';
+  skip.type = 'button';
+  skip.textContent = 'Skip';
+  reveal.appendChild(skip);
+
+  function finish(instant) {
+    timers.forEach(clearTimeout); timers = [];
+    document.body.classList.remove('intro-running');
+    if (masthead) masthead.classList.add('lift');
+    if (instant) {
+      reveal.classList.remove('playing');
+      reveal.remove();
+    } else {
+      reveal.classList.add('fading');
+      setTimeout(function () { reveal.remove(); }, 950);
+    }
+  }
+  skip.addEventListener('click', function () { finish(true); });
+  document.addEventListener('keydown', function onKey(e) {
+    if (e.key === 'Escape') { finish(true); document.removeEventListener('keydown', onKey); }
+  });
+
+  // T0  light finds the gap, camera starts creeping forward
+  at(60,   function () { scene.classList.add('push'); });
+  at(140,  function () { beam.classList.add('glow'); raysBox.classList.add('lit'); core.classList.add('up'); });
+
+  // T1  the canopy parts, back to front, each depth staggered by --delay.
+  //     The wash stays solid here on purpose: the gap opens onto light
+  //     (beam + rays sit above the wash), not onto the page yet.
+  at(1250, function () {
+    layers.forEach(function (el) { el.classList.add('part'); });
+  });
+
+  // T2  the gap is wide: bloom peaks, and only now does the wash lift
+  //     so the page emerges out of the glare
+  at(2950, function () {
+    bloom.classList.add('flash');
+    wash.classList.add('open');
     vignette.classList.add('out');
-  }, t0 + SLIDE + GAP));
+    beam.classList.add('out');
+  });
 
-  // clearing reached: hand the page over
-  timers.push(setTimeout(function () {
-    landing.style.transition = 'filter 1s ease';
-    landing.style.filter = 'brightness(1) blur(0)';
-    heroIn.classList.add('visible');
-    body.classList.remove('intro-running');
-  }, t0 + SLIDE + GAP + SLIDE + 200));
-
-  // overlay out of the way once it has finished
-  timers.push(setTimeout(function () { finish(false); }, t0 + SLIDE + GAP + SLIDE + 1400));
+  // T3  hand the page over, then fade the overlay away behind the content
+  at(3700, function () {
+    document.body.classList.remove('intro-running');
+    if (masthead) masthead.classList.add('lift');
+    skip.style.opacity = '0';
+  });
+  at(4150, function () { finish(false); });
 })();
 </script>
 </body>
